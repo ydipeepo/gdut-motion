@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dbysni1gt5a3y"]
+
+[ext_resource type="Script" uid="uid://cq4lfeot43t5e" path="res://prefabs/Graph2D.gd" id="1_hta1b"]
+
+[node name="Graph2D" type="ColorRect" unique_id=1560272811]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_hta1b")

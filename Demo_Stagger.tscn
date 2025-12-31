@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://cmleq6xf7q4qq"]
+
+[ext_resource type="Script" uid="uid://oabvgupi8rky" path="res://Demo_Stagger.gd" id="1_nliof"]
+[ext_resource type="Texture2D" uid="uid://bhrjwaf2fsy8k" path="res://assets/texture/icon.png" id="2_1p1r6"]
+
+[sub_resource type="SystemFont" id="SystemFont_32ob6"]
+subpixel_positioning = 0
+
+[node name="Demo_Stagger" type="Control" unique_id=835237470]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nliof")
+
+[node name="Title" type="Label" parent="." unique_id=952174650]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 62.0
+offset_right = 256.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_32ob6")
+theme_override_font_sizes/font_size = 24
+text = "Staggering"
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="." unique_id=2015077561]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 104.0
+offset_right = 670.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_32ob6")
+theme_override_font_sizes/font_size = 12
+text = "You can transition multiple targets at once by combining it with GDUT Task."
+vertical_alignment = 1
+
+[node name="Button_Start" type="Button" parent="." unique_id=38406580]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 64.0
+offset_top = 208.0
+offset_right = 640.0
+offset_bottom = 240.0
+text = "Start stagger"
+
+[node name="Panel" type="Panel" parent="." unique_id=1440741655]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 0
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 1216.0
+offset_bottom = 656.0
+
+[node name="Icon_1" type="TextureRect" parent="Panel" unique_id=287255783]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 496.0
+offset_top = 112.0
+offset_right = 528.0
+offset_bottom = 144.0
+texture = ExtResource("2_1p1r6")
+
+[node name="Icon_2" type="TextureRect" parent="Panel" unique_id=1975425648]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 496.0
+offset_top = 176.0
+offset_right = 528.0
+offset_bottom = 208.0
+texture = ExtResource("2_1p1r6")
+
+[node name="Icon_3" type="TextureRect" parent="Panel" unique_id=328740788]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 496.0
+offset_top = 240.0
+offset_right = 528.0
+offset_bottom = 272.0
+texture = ExtResource("2_1p1r6")
+
+[connection signal="pressed" from="Button_Start" to="." method="_on_button_start_pressed"]

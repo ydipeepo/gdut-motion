@@ -1,0 +1,744 @@
+[gd_scene format=3 uid="uid://dr8vjsamb0p6n"]
+
+[ext_resource type="Script" uid="uid://bbxesxyenxnhq" path="res://prefabs/Transition.gd" id="1_3mf5h"]
+[ext_resource type="Theme" uid="uid://itmgkfdfuwrs" path="res://assets/theme/test.tres" id="1_gkwsl"]
+[ext_resource type="PackedScene" uid="uid://bw7jroyx0l5pi" path="res://prefabs/RangeValue.tscn" id="2_gkwsl"]
+
+[node name="Transition" type="VBoxContainer" unique_id=1857888207]
+custom_minimum_size = Vector2(288, 0)
+offset_right = 206.0
+offset_bottom = 234.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gkwsl")
+script = ExtResource("1_3mf5h")
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=2081176089]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 164)
+layout_mode = 2
+current_tab = 0
+tab_0/title = "Tween"
+tab_1/title = "Bezier"
+tab_2/title = "Linear"
+tab_3/title = "Steps"
+tab_4/title = "Irregular"
+tab_5/title = "Spring"
+tab_6/title = "Glide"
+
+[node name="Tab_Tween" type="TabBar" parent="TabContainer" unique_id=1342681873]
+layout_mode = 2
+metadata/_tab_index = 0
+metadata/_tab_name = "Tween"
+
+[node name="Margin" type="MarginContainer" parent="TabContainer/Tab_Tween" unique_id=2127900087]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Tween" type="VBoxContainer" parent="TabContainer/Tab_Tween/Margin" unique_id=367043474]
+layout_mode = 2
+theme_override_constants/separation = 4
+metadata/_edit_group_ = true
+
+[node name="Ease" type="HBoxContainer" parent="TabContainer/Tab_Tween/Margin/Tween" unique_id=1981380526]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Tween/Margin/Tween/Ease" unique_id=1997353779]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Ease:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Tween_Ease" type="OptionButton" parent="TabContainer/Tab_Tween/Margin/Tween/Ease" unique_id=1279099479]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 4
+popup/item_0/text = "In"
+popup/item_0/id = 0
+popup/item_1/text = "Out"
+popup/item_1/id = 1
+popup/item_2/text = "In & Out"
+popup/item_2/id = 2
+popup/item_3/text = "Out & In"
+popup/item_3/id = 3
+
+[node name="Trans" type="HBoxContainer" parent="TabContainer/Tab_Tween/Margin/Tween" unique_id=2045529646]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Tween/Margin/Tween/Trans" unique_id=1689655531]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Trans:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Tween_Trans" type="OptionButton" parent="TabContainer/Tab_Tween/Margin/Tween/Trans" unique_id=47378210]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 12
+popup/item_0/text = "Linear"
+popup/item_0/id = 0
+popup/item_1/text = "Sine"
+popup/item_1/id = 1
+popup/item_2/text = "Quint"
+popup/item_2/id = 2
+popup/item_3/text = "Quart"
+popup/item_3/id = 3
+popup/item_4/text = "Quad"
+popup/item_4/id = 4
+popup/item_5/text = "Expo"
+popup/item_5/id = 5
+popup/item_6/text = "Elastic"
+popup/item_6/id = 6
+popup/item_7/text = "Cubic"
+popup/item_7/id = 7
+popup/item_8/text = "Circ"
+popup/item_8/id = 8
+popup/item_9/text = "Bounce"
+popup/item_9/id = 9
+popup/item_10/text = "Back"
+popup/item_10/id = 10
+popup/item_11/text = "Spring"
+popup/item_11/id = 11
+
+[node name="Duration" type="HBoxContainer" parent="TabContainer/Tab_Tween/Margin/Tween" unique_id=1304929254]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Tween/Margin/Tween/Duration" unique_id=1287528089]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Duration:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Tween_Duration" parent="TabContainer/Tab_Tween/Margin/Tween/Duration" unique_id=153674069 instance=ExtResource("2_gkwsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 10.0
+value = 1.0
+exponent = 1
+
+[node name="Tab_Bezier" type="TabBar" parent="TabContainer" unique_id=501519914]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+metadata/_tab_name = "Bezier"
+
+[node name="Margin" type="MarginContainer" parent="TabContainer/Tab_Bezier" unique_id=1671507826]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Bezier" type="VBoxContainer" parent="TabContainer/Tab_Bezier/Margin" unique_id=959154014]
+layout_mode = 2
+theme_override_constants/separation = 4
+metadata/_edit_group_ = true
+
+[node name="X1" type="HBoxContainer" parent="TabContainer/Tab_Bezier/Margin/Bezier" unique_id=752127950]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Bezier/Margin/Bezier/X1" unique_id=997764263]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "X1:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Bezier_X1" parent="TabContainer/Tab_Bezier/Margin/Bezier/X1" unique_id=827723962 instance=ExtResource("2_gkwsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+value = 0.7
+exponent = 2
+
+[node name="Y1" type="HBoxContainer" parent="TabContainer/Tab_Bezier/Margin/Bezier" unique_id=91914747]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Bezier/Margin/Bezier/Y1" unique_id=2115435845]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Y1:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Bezier_Y1" parent="TabContainer/Tab_Bezier/Margin/Bezier/Y1" unique_id=32503076 instance=ExtResource("2_gkwsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -1.0
+max_value = 2.0
+value = 0.1
+exponent = 2
+
+[node name="X2" type="HBoxContainer" parent="TabContainer/Tab_Bezier/Margin/Bezier" unique_id=1212682999]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Bezier/Margin/Bezier/X2" unique_id=2101456113]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "X2:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Bezier_X2" parent="TabContainer/Tab_Bezier/Margin/Bezier/X2" unique_id=779425882 instance=ExtResource("2_gkwsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+value = 0.5
+exponent = 2
+
+[node name="Y2" type="HBoxContainer" parent="TabContainer/Tab_Bezier/Margin/Bezier" unique_id=2051130361]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Bezier/Margin/Bezier/Y2" unique_id=1963904761]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Y2:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Bezier_Y2" parent="TabContainer/Tab_Bezier/Margin/Bezier/Y2" unique_id=1533362012 instance=ExtResource("2_gkwsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -1.0
+max_value = 2.0
+value = 0.9
+exponent = 2
+
+[node name="Duration" type="HBoxContainer" parent="TabContainer/Tab_Bezier/Margin/Bezier" unique_id=994713644]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Bezier/Margin/Bezier/Duration" unique_id=556584610]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Duration:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Bezier_Duration" parent="TabContainer/Tab_Bezier/Margin/Bezier/Duration" unique_id=1629882774 instance=ExtResource("2_gkwsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 10.0
+value = 1.0
+exponent = 1
+
+[node name="Tab_Linear" type="TabBar" parent="TabContainer" unique_id=344463896]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+metadata/_tab_name = "Linear"
+
+[node name="Margin" type="MarginContainer" parent="TabContainer/Tab_Linear" unique_id=771206836]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Linear" type="VBoxContainer" parent="TabContainer/Tab_Linear/Margin" unique_id=364784260]
+layout_mode = 2
+theme_override_constants/separation = 4
+metadata/_edit_group_ = true
+
+[node name="Duration" type="HBoxContainer" parent="TabContainer/Tab_Linear/Margin/Linear" unique_id=824052356]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Linear/Margin/Linear/Duration" unique_id=1363957804]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Duration:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Linear_Duration" parent="TabContainer/Tab_Linear/Margin/Linear/Duration" unique_id=460628319 instance=ExtResource("2_gkwsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 10.0
+value = 1.0
+exponent = 1
+
+[node name="Tab_Steps" type="TabBar" parent="TabContainer" unique_id=1132697170]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+metadata/_tab_name = "Steps"
+
+[node name="Margin" type="MarginContainer" parent="TabContainer/Tab_Steps" unique_id=1979688218]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Steps" type="VBoxContainer" parent="TabContainer/Tab_Steps/Margin" unique_id=497915302]
+layout_mode = 2
+theme_override_constants/separation = 4
+metadata/_edit_group_ = true
+
+[node name="Round" type="HBoxContainer" parent="TabContainer/Tab_Steps/Margin/Steps" unique_id=1662423678]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Steps/Margin/Steps/Round" unique_id=627417941]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Round:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Steps_Round" type="OptionButton" parent="TabContainer/Tab_Steps/Margin/Steps/Round" unique_id=1211179764]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 2
+popup/item_0/text = "Ceil"
+popup/item_0/id = 0
+popup/item_1/text = "Floor"
+popup/item_1/id = 1
+
+[node name="Segments" type="HBoxContainer" parent="TabContainer/Tab_Steps/Margin/Steps" unique_id=1752177200]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Steps/Margin/Steps/Segments" unique_id=455437532]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Segments:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Steps_Segments" parent="TabContainer/Tab_Steps/Margin/Steps/Segments" unique_id=1586048968 instance=ExtResource("2_gkwsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+value = 10.0
+
+[node name="Duration" type="HBoxContainer" parent="TabContainer/Tab_Steps/Margin/Steps" unique_id=2027899371]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Steps/Margin/Steps/Duration" unique_id=979024401]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Duration:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Steps_Duration" parent="TabContainer/Tab_Steps/Margin/Steps/Duration" unique_id=2100084115 instance=ExtResource("2_gkwsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 10.0
+value = 1.0
+exponent = 1
+
+[node name="Tab_Irregular" type="TabBar" parent="TabContainer" unique_id=710279384]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+metadata/_tab_name = "Irregular"
+
+[node name="Margin" type="MarginContainer" parent="TabContainer/Tab_Irregular" unique_id=879547560]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Irregular" type="VBoxContainer" parent="TabContainer/Tab_Irregular/Margin" unique_id=575451195]
+layout_mode = 2
+theme_override_constants/separation = 4
+metadata/_edit_group_ = true
+
+[node name="Segments" type="HBoxContainer" parent="TabContainer/Tab_Irregular/Margin/Irregular" unique_id=1602841230]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Irregular/Margin/Irregular/Segments" unique_id=1475081784]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Segments:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Irregular_Segments" parent="TabContainer/Tab_Irregular/Margin/Irregular/Segments" unique_id=152034563 instance=ExtResource("2_gkwsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+value = 10.0
+
+[node name="Intensity" type="HBoxContainer" parent="TabContainer/Tab_Irregular/Margin/Irregular" unique_id=411801968]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Irregular/Margin/Irregular/Intensity" unique_id=329734789]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Intensity:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Irregular_Intensity" parent="TabContainer/Tab_Irregular/Margin/Irregular/Intensity" unique_id=1904888778 instance=ExtResource("2_gkwsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 4.0
+value = 0.5
+exponent = 2
+
+[node name="Duration" type="HBoxContainer" parent="TabContainer/Tab_Irregular/Margin/Irregular" unique_id=1408580211]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Irregular/Margin/Irregular/Duration" unique_id=629243006]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Duration:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Irregular_Duration" parent="TabContainer/Tab_Irregular/Margin/Irregular/Duration" unique_id=1870125738 instance=ExtResource("2_gkwsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 10.0
+value = 1.0
+exponent = 1
+
+[node name="Tab_Spring" type="TabBar" parent="TabContainer" unique_id=1351966379]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 5
+metadata/_tab_name = "Spring"
+
+[node name="Margin" type="MarginContainer" parent="TabContainer/Tab_Spring" unique_id=572702104]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Spring" type="VBoxContainer" parent="TabContainer/Tab_Spring/Margin" unique_id=231979998]
+layout_mode = 2
+theme_override_constants/separation = 4
+metadata/_edit_group_ = true
+
+[node name="Stiffness" type="HBoxContainer" parent="TabContainer/Tab_Spring/Margin/Spring" unique_id=855033673]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Spring/Margin/Spring/Stiffness" unique_id=144409999]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Stiffness:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Spring_Stiffness" parent="TabContainer/Tab_Spring/Margin/Spring/Stiffness" unique_id=1106420328 instance=ExtResource("2_gkwsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 1000.0
+value = 100.0
+
+[node name="Damping" type="HBoxContainer" parent="TabContainer/Tab_Spring/Margin/Spring" unique_id=686060259]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Spring/Margin/Spring/Damping" unique_id=605392986]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Damping:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Spring_Damping" parent="TabContainer/Tab_Spring/Margin/Spring/Damping" unique_id=2104349569 instance=ExtResource("2_gkwsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1000.0
+value = 10.0
+
+[node name="Mass" type="HBoxContainer" parent="TabContainer/Tab_Spring/Margin/Spring" unique_id=2141824784]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Spring/Margin/Spring/Mass" unique_id=2031746614]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Mass:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Spring_Mass" parent="TabContainer/Tab_Spring/Margin/Spring/Mass" unique_id=125264686 instance=ExtResource("2_gkwsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.1
+value = 1.0
+exponent = 1
+
+[node name="RestSpeed" type="HBoxContainer" parent="TabContainer/Tab_Spring/Margin/Spring" unique_id=796117963]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Spring/Margin/Spring/RestSpeed" unique_id=1865039241]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Rest Spd.:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Spring_RestSpeed" parent="TabContainer/Tab_Spring/Margin/Spring/RestSpeed" unique_id=1746728141 instance=ExtResource("2_gkwsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.01
+max_value = 5.0
+value = 0.01
+exponent = 2
+
+[node name="RestDelta" type="HBoxContainer" parent="TabContainer/Tab_Spring/Margin/Spring" unique_id=1000092531]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Spring/Margin/Spring/RestDelta" unique_id=560187810]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Rest Dlt.:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Spring_RestDelta" parent="TabContainer/Tab_Spring/Margin/Spring/RestDelta" unique_id=1851070044 instance=ExtResource("2_gkwsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.01
+max_value = 5.0
+value = 0.01
+exponent = 2
+
+[node name="OverdampingAndOvershooting" type="HBoxContainer" parent="TabContainer/Tab_Spring/Margin/Spring" unique_id=916257921]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label_Overdamping" type="Label" parent="TabContainer/Tab_Spring/Margin/Spring/OverdampingAndOvershooting" unique_id=706312978]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Ovrdmp.:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Spring_Overdamping" type="CheckButton" parent="TabContainer/Tab_Spring/Margin/Spring/OverdampingAndOvershooting" unique_id=1695538805]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "Lmt."
+
+[node name="Label_Overshooting" type="Label" parent="TabContainer/Tab_Spring/Margin/Spring/OverdampingAndOvershooting" unique_id=1194975234]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Ovrsht.:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Spring_Overshooting" type="CheckButton" parent="TabContainer/Tab_Spring/Margin/Spring/OverdampingAndOvershooting" unique_id=2077792475]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Lmt."
+
+[node name="Tab_Glide" type="TabBar" parent="TabContainer" unique_id=2003008345]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 6
+metadata/_tab_name = "Glide"
+
+[node name="Margin" type="MarginContainer" parent="TabContainer/Tab_Glide" unique_id=1379660746]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Glide" type="VBoxContainer" parent="TabContainer/Tab_Glide/Margin" unique_id=222235273]
+layout_mode = 2
+theme_override_constants/separation = 4
+metadata/_edit_group_ = true
+
+[node name="Power" type="HBoxContainer" parent="TabContainer/Tab_Glide/Margin/Glide" unique_id=1090516612]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Glide/Margin/Glide/Power" unique_id=335316826]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Power:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Glide_Power" parent="TabContainer/Tab_Glide/Margin/Glide/Power" unique_id=1697365910 instance=ExtResource("2_gkwsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.01
+max_value = 5.0
+value = 0.8
+exponent = 2
+
+[node name="TimeConstant" type="HBoxContainer" parent="TabContainer/Tab_Glide/Margin/Glide" unique_id=252575904]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Glide/Margin/Glide/TimeConstant" unique_id=1736613822]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "T Const,:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Glide_TimeConstant" parent="TabContainer/Tab_Glide/Margin/Glide/TimeConstant" unique_id=795786925 instance=ExtResource("2_gkwsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 5.0
+value = 0.35
+exponent = 2
+
+[node name="RestDelta" type="HBoxContainer" parent="TabContainer/Tab_Glide/Margin/Glide" unique_id=2126836071]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="TabContainer/Tab_Glide/Margin/Glide/RestDelta" unique_id=671116783]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Rest Dlt.:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Glide_RestDelta" parent="TabContainer/Tab_Glide/Margin/Glide/RestDelta" unique_id=1088101324 instance=ExtResource("2_gkwsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.01
+max_value = 5.0
+value = 0.01
+exponent = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1799736733]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="PanelContainer" unique_id=780865189]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Transition" type="VBoxContainer" parent="PanelContainer/Margin" unique_id=820856139]
+layout_mode = 2
+theme_override_constants/separation = 4
+metadata/_edit_group_ = true
+
+[node name="Process" type="HBoxContainer" parent="PanelContainer/Margin/Transition" unique_id=1703086136]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="PanelContainer/Margin/Transition/Process" unique_id=1763280840]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Process:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Transition_Process" type="OptionButton" parent="PanelContainer/Margin/Transition/Process" unique_id=2000665713]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 2
+popup/item_0/text = "Idle"
+popup/item_0/id = 0
+popup/item_1/text = "Physics"
+popup/item_1/id = 1
+
+[node name="Delay" type="HBoxContainer" parent="PanelContainer/Margin/Transition" unique_id=296432639]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="PanelContainer/Margin/Transition/Delay" unique_id=1847011413]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+text = "Delay:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Transition_Delay" parent="PanelContainer/Margin/Transition/Delay" unique_id=1436112315 instance=ExtResource("2_gkwsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 10.0
+exponent = 1

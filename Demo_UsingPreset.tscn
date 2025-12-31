@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://c12ey1tffhhh1"]
+
+[ext_resource type="Script" uid="uid://c86dvy2h1e7qe" path="res://Demo_UsingPreset.gd" id="1_ptynk"]
+[ext_resource type="Script" uid="uid://bu14ry6fs0vok" path="res://addons/gdut-motion/MotionPresetBank.gd" id="1_tgo45"]
+[ext_resource type="Script" uid="uid://ck83tpyai4aj6" path="res://addons/gdut-motion/MotionPreset.gd" id="2_uhpci"]
+[ext_resource type="Script" uid="uid://ba473dvpurlt5" path="res://addons/gdut-motion/TweenMotionPreset.gd" id="3_ptynk"]
+[ext_resource type="Texture2D" uid="uid://bhrjwaf2fsy8k" path="res://assets/texture/icon.png" id="4_bv6dh"]
+
+[sub_resource type="Resource" id="Resource_treo8"]
+script = ExtResource("3_ptynk")
+trans = 2
+ease = 0
+name = &"random"
+metadata/_custom_type_script = "uid://ba473dvpurlt5"
+
+[sub_resource type="Resource" id="Resource_bv6dh"]
+script = ExtResource("3_ptynk")
+trans = 9
+ease = 0
+name = &"random"
+metadata/_custom_type_script = "uid://ba473dvpurlt5"
+
+[sub_resource type="SystemFont" id="SystemFont_7cmm4"]
+subpixel_positioning = 0
+
+[node name="Demo_UsingPreset" type="Control" unique_id=1956929050]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ptynk")
+
+[node name="MotionPresetBank" type="Node" parent="." unique_id=1982129128]
+script = ExtResource("1_tgo45")
+presets = Array[ExtResource("2_uhpci")]([SubResource("Resource_treo8"), SubResource("Resource_bv6dh")])
+metadata/_custom_type_script = "uid://bu14ry6fs0vok"
+
+[node name="Title" type="Label" parent="." unique_id=436243224]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 62.0
+offset_right = 256.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_7cmm4")
+theme_override_font_sizes/font_size = 24
+text = "Using Preset"
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="." unique_id=1082566601]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 104.0
+offset_right = 670.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_7cmm4")
+theme_override_font_sizes/font_size = 12
+text = "You can standardize transition settings as a common preset."
+vertical_alignment = 1
+
+[node name="Button_StartPreset" type="Button" parent="." unique_id=1300444426]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 64.0
+offset_top = 208.0
+offset_right = 256.0
+offset_bottom = 240.0
+text = "Start preset"
+
+[node name="Panel" type="Panel" parent="." unique_id=1196776491]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 0
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 1216.0
+offset_bottom = 656.0
+
+[node name="Icon" type="TextureRect" parent="Panel" unique_id=405314031]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 496.0
+offset_top = 176.0
+offset_right = 528.0
+offset_bottom = 208.0
+texture = ExtResource("4_bv6dh")
+
+[connection signal="pressed" from="Button_StartPreset" to="." method="_on_button_start_preset_pressed"]

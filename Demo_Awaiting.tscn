@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://dbxqq5u03i4tp"]
+
+[ext_resource type="Script" uid="uid://dgx7m18d5adxh" path="res://Demo_Awaiting.gd" id="1_32ob6"]
+[ext_resource type="Texture2D" uid="uid://bhrjwaf2fsy8k" path="res://assets/texture/icon.png" id="2_kina1"]
+
+[sub_resource type="SystemFont" id="SystemFont_32ob6"]
+subpixel_positioning = 0
+
+[node name="Demo_Awaiting" type="Control" unique_id=835237470]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_32ob6")
+
+[node name="Title" type="Label" parent="." unique_id=952174650]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 62.0
+offset_right = 256.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_32ob6")
+theme_override_font_sizes/font_size = 24
+text = "Awaiting"
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="." unique_id=2015077561]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 104.0
+offset_right = 670.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_32ob6")
+theme_override_font_sizes/font_size = 12
+text = "You can wait for the transition to complete."
+vertical_alignment = 1
+
+[node name="Button_Tween" type="Button" parent="." unique_id=57654185]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 64.0
+offset_top = 168.0
+offset_right = 640.0
+offset_bottom = 200.0
+text = "Call Motion.tween"
+
+[node name="Button_Bezier" type="Button" parent="." unique_id=38406580]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 64.0
+offset_top = 208.0
+offset_right = 640.0
+offset_bottom = 240.0
+text = "Call Motion.bezier"
+
+[node name="Panel" type="Panel" parent="." unique_id=1440741655]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 0
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 1216.0
+offset_bottom = 656.0
+
+[node name="Icon" type="TextureRect" parent="Panel" unique_id=287255783]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 496.0
+offset_top = 176.0
+offset_right = 528.0
+offset_bottom = 208.0
+texture = ExtResource("2_kina1")
+
+[connection signal="pressed" from="Button_Tween" to="." method="_on_button_tween_pressed"]
+[connection signal="pressed" from="Button_Bezier" to="." method="_on_button_bezier_pressed"]

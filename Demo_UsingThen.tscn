@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bp34kvtpdlpej"]
+
+[ext_resource type="Script" uid="uid://bdo0s0ijvu5td" path="res://Demo_UsingThen.gd" id="1_54koj"]
+[ext_resource type="Texture2D" uid="uid://bhrjwaf2fsy8k" path="res://assets/texture/icon.png" id="2_0n8e5"]
+
+[sub_resource type="SystemFont" id="SystemFont_jg34m"]
+subpixel_positioning = 0
+
+[node name="Demo_UsingThen" type="Control" unique_id=835237470]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_54koj")
+
+[node name="Title" type="Label" parent="." unique_id=1287352088]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 62.0
+offset_right = 256.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_jg34m")
+theme_override_font_sizes/font_size = 24
+text = "Using then"
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="." unique_id=1536910017]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 104.0
+offset_right = 416.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_jg34m")
+theme_override_font_sizes/font_size = 12
+text = "You can combine multiple transitions to create a storyboard instantly."
+vertical_alignment = 1
+
+[node name="Button_StartStoryboard" type="Button" parent="." unique_id=57654185]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 64.0
+offset_top = 208.0
+offset_right = 256.0
+offset_bottom = 240.0
+text = "Start storyboard"
+
+[node name="Panel" type="Panel" parent="." unique_id=1440741655]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 0
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 1216.0
+offset_bottom = 656.0
+
+[node name="Icon" type="TextureRect" parent="Panel" unique_id=287255783]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 496.0
+offset_top = 176.0
+offset_right = 528.0
+offset_bottom = 208.0
+texture = ExtResource("2_0n8e5")
+
+[connection signal="pressed" from="Button_StartStoryboard" to="." method="_on_button_start_storyboard_pressed"]
