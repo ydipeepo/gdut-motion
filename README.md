@@ -25,7 +25,7 @@ It was created for the following purposes:
 
 <br />
 
-## Quick start
+## Usage
 
 When the add-on is enabled, the `Motion` class and the `MotionPresetBank` node become available.
 
@@ -104,6 +104,10 @@ await Motion \
 ```
 
 The expressions differ for each motion type. For details, please refer to the in-editor help.
+
+<br />
+
+## Quick start
 
 #### Installation
 
