@@ -21,13 +21,13 @@ It was created for the following purposes:
 
 * Simpler to use than Tween.
 * When rescheduling, velocity is preserved and curves are smoothly connected (limited to physics-based animations).
-* Animation curves can be configured from node (and resources), making them easy for designers to manage.
+* Animation curves can be configured from node (and resources), making them easy for designers to maintain.
 
 <br />
 
 ## Usage
 
-Here, we will explain only how to configure curves using `MotionPresetBank` node.
+This section explains how to configure and use presets with the `MotionPresetBank` node.
 
 Place a `MotionPresetBank` node in the scene tree as shown below:
 
