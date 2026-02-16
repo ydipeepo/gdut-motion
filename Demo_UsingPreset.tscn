@@ -6,19 +6,6 @@
 [ext_resource type="Script" uid="uid://ba473dvpurlt5" path="res://addons/gdut-motion/TweenMotionPreset.gd" id="3_ptynk"]
 [ext_resource type="Texture2D" uid="uid://bhrjwaf2fsy8k" path="res://assets/texture/icon.png" id="4_bv6dh"]
 
-<<<<<<< Updated upstream
-[sub_resource type="Resource" id="Resource_treo8"]
-script = ExtResource("3_ptynk")
-trans = 2
-ease = 0
-name = &"random"
-metadata/_custom_type_script = "uid://ba473dvpurlt5"
-
-[sub_resource type="Resource" id="Resource_bv6dh"]
-script = ExtResource("3_ptynk")
-trans = 9
-ease = 0
-=======
 [sub_resource type="Resource" id="Resource_bv6dh"]
 script = ExtResource("3_ptynk")
 trans = 9
@@ -37,7 +24,6 @@ metadata/_custom_type_script = "uid://ba473dvpurlt5"
 script = ExtResource("3_ptynk")
 trans = 6
 ease = 1
->>>>>>> Stashed changes
 name = &"random"
 metadata/_custom_type_script = "uid://ba473dvpurlt5"
 
@@ -55,11 +41,7 @@ script = ExtResource("1_ptynk")
 
 [node name="MotionPresetBank" type="Node" parent="." unique_id=1982129128]
 script = ExtResource("1_tgo45")
-<<<<<<< Updated upstream
-presets = Array[ExtResource("2_uhpci")]([SubResource("Resource_treo8"), SubResource("Resource_bv6dh")])
-=======
 presets = Array[ExtResource("2_uhpci")]([SubResource("Resource_bv6dh"), SubResource("Resource_treo8"), SubResource("Resource_ptynk")])
->>>>>>> Stashed changes
 metadata/_custom_type_script = "uid://bu14ry6fs0vok"
 
 [node name="Title" type="Label" parent="." unique_id=436243224]
@@ -95,11 +77,7 @@ offset_left = 64.0
 offset_top = 208.0
 offset_right = 256.0
 offset_bottom = 240.0
-<<<<<<< Updated upstream
-text = "Start preset"
-=======
 text = "Start \"random\" preset"
->>>>>>> Stashed changes
 
 [node name="Panel" type="Panel" parent="." unique_id=1196776491]
 unique_name_in_owner = true

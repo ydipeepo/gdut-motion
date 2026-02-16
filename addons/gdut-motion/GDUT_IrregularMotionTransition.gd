@@ -37,14 +37,11 @@ func get_prime(x: float) -> float:
 
 #-------------------------------------------------------------------------------
 
-<<<<<<< Updated upstream
-=======
 #
 # Based on Anime.js (@juliangarnier) implementation:
 # //github.com/juliangarnier/anime/blob/master/src/easings/irregular/index.js
 #
 
->>>>>>> Stashed changes
 var _y_array: PackedFloat32Array
 
 func _init(

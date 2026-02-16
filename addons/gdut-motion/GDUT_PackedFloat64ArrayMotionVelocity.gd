@@ -4,47 +4,6 @@ class_name GDUT_PackedFloat64ArrayMotionVelocity extends GDUT_MotionVelocity
 #	METHODS
 #-------------------------------------------------------------------------------
 
-<<<<<<< Updated upstream
-static func create(array_size: int) -> GDUT_MotionVelocity:
-	return new(array_size)
-
-static func validate_incoming_value(value: Variant, array_size: int) -> bool:
-	assert(0 <= array_size)
-	match typeof(value):
-		TYPE_ARRAY:
-			if not _can_convert_from_array(value, array_size):
-				return false
-		TYPE_PACKED_INT32_ARRAY:
-			if not _can_convert_from_packed_int32_array(value, array_size):
-				return false
-		TYPE_PACKED_INT64_ARRAY:
-			if not _can_convert_from_packed_int64_array(value, array_size):
-				return false
-		TYPE_PACKED_FLOAT32_ARRAY:
-			if not _can_convert_from_packed_float32_array(value, array_size):
-				return false
-		TYPE_PACKED_FLOAT64_ARRAY:
-			if not _can_convert_from_packed_float64_array(value, array_size):
-				return false
-		_:
-			return false
-	return true
-
-func set_incoming_value(value: Variant) -> void:
-	match typeof(value):
-		TYPE_ARRAY:
-			_convert_from_array(value)
-		TYPE_PACKED_INT32_ARRAY:
-			_convert_from_packed_int32_array(value)
-		TYPE_PACKED_INT64_ARRAY:
-			_convert_from_packed_int64_array(value)
-		TYPE_PACKED_FLOAT32_ARRAY:
-			_convert_from_packed_float32_array(value)
-		TYPE_PACKED_FLOAT64_ARRAY:
-			_convert_from_packed_float64_array(value)
-
-func get_outgoing_value() -> Variant:
-=======
 static func can_convert(value: Variant, array_size: int) -> bool:
 	var can_convert: Callable = _packed_float64_array_can_convert_map.get(typeof(value))
 	return can_convert.is_valid() and can_convert.call(value, array_size)
@@ -55,7 +14,6 @@ func set_value(value: Variant) -> void:
 	convert.call(value, _array)
 
 func get_value() -> Variant:
->>>>>>> Stashed changes
 	return _array
 
 func set_value_at(index: int, value: float) -> void:
@@ -70,8 +28,6 @@ var _array: Array[float]
 
 #region converters
 
-<<<<<<< Updated upstream
-=======
 static var _packed_float64_array_can_convert_map: Dictionary[int, Callable] = {
 	TYPE_ARRAY: _can_convert_from_array,
 	TYPE_PACKED_INT32_ARRAY: _can_convert_from_packed_int32_array,
@@ -88,7 +44,6 @@ static var _packed_float64_array_convert_map: Dictionary[int, Callable] = {
 	TYPE_PACKED_FLOAT64_ARRAY: _convert_from_packed_float64_array,
 }
 
->>>>>>> Stashed changes
 static func _can_convert_from_array(array: Array, array_size: int) -> bool:
 	match array.get_typed_builtin():
 		TYPE_NIL:
@@ -140,33 +95,6 @@ static func _can_convert_from_packed_float32_array(array: PackedFloat32Array, ar
 static func _can_convert_from_packed_float64_array(array: PackedFloat64Array, array_size: int) -> bool:
 	return array.size() == array_size
 
-<<<<<<< Updated upstream
-func _convert_from_array(array: Array) -> void:
-	match array.get_typed_builtin():
-		TYPE_NIL:
-			var value: Variant = array[0]
-			match typeof(value):
-				TYPE_INT, \
-				TYPE_FLOAT:
-					_array[0] = value
-				TYPE_ARRAY:
-					_array[0] = value[0]
-		TYPE_INT, \
-		TYPE_FLOAT:
-			_array[0] = array[0]
-
-func _convert_from_packed_int32_array(array: PackedInt32Array) -> void:
-	_array[0] = array[0]
-
-func _convert_from_packed_int64_array(array: PackedInt64Array) -> void:
-	_array[0] = array[0]
-
-func _convert_from_packed_float32_array(array: PackedFloat32Array) -> void:
-	_array[0] = array[0]
-
-func _convert_from_packed_float64_array(array: PackedFloat64Array) -> void:
-	_array[0] = array[0]
-=======
 static func _convert_from_array(array: Array, converted_array: Array[float]) -> void:
 	match array.get_typed_builtin():
 		TYPE_NIL:
@@ -214,7 +142,6 @@ static func _convert_from_packed_float64_array(array: PackedFloat64Array, conver
 	for value: float in array:
 		converted_array[write] = value
 		write += 1
->>>>>>> Stashed changes
 
 #endregion
 

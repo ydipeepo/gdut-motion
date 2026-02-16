@@ -10,37 +10,6 @@ const DEFAULT_VALUE := Transform3D.IDENTITY
 #	METHODS
 #-------------------------------------------------------------------------------
 
-<<<<<<< Updated upstream
-@warning_ignore("unused_parameter")
-static func create(array_size: int) -> GDUT_MotionPosition:
-	return new()
-
-static func validate_incoming_value(value: Variant, array_size: int) -> bool:
-	match typeof(value):
-		TYPE_TRANSFORM3D:
-			if array_size != 1 or not _can_convert_from_transform_3d(value):
-				return false
-		TYPE_PROJECTION:
-			if array_size != 1 or not _can_convert_from_projection(value):
-				return false
-		TYPE_ARRAY:
-			if array_size != 1 or not _can_convert_from_array(value):
-				return false
-		_:
-			return false
-	return true
-
-func set_incoming_value(value: Variant) -> void:
-	match typeof(value):
-		TYPE_TRANSFORM3D:
-			_value = _convert_from_transform_3d(value)
-		TYPE_PROJECTION:
-			_value = _convert_from_projection(value)
-		TYPE_ARRAY:
-			_value = _convert_from_array(value)
-
-func get_outgoing_value() -> Variant:
-=======
 static func can_convert(value: Variant, array_size: int) -> bool:
 	var can_convert: Callable = _transform_3d_can_convert_map.get(typeof(value))
 	return can_convert.is_valid() and can_convert.call(value, array_size)
@@ -51,7 +20,6 @@ func set_value(value: Variant) -> void:
 	_value = convert.call(value)
 
 func get_value() -> Variant:
->>>>>>> Stashed changes
 	return _value
 
 func set_value_at(index: int, value: float) -> void:
@@ -92,17 +60,6 @@ var _value: Transform3D
 
 #region converters
 
-<<<<<<< Updated upstream
-@warning_ignore("unused_parameter")
-static func _can_convert_from_transform_3d(value: Transform3D) -> bool:
-	return true
-
-@warning_ignore("unused_parameter")
-static func _can_convert_from_projection(value: Projection) -> bool:
-	return true
-
-static func _can_convert_from_array(value: Array) -> bool:
-=======
 static var _transform_3d_can_convert_map: Dictionary[int, Callable] = {
 	TYPE_TRANSFORM3D: _can_convert_from_transform_3d,
 	TYPE_PROJECTION: _can_convert_from_projection,
@@ -126,7 +83,6 @@ static func _can_convert_from_projection(value: Projection, array_size: int) -> 
 static func _can_convert_from_array(value: Array, array_size: int) -> bool:
 	if array_size != 1:
 		return false
->>>>>>> Stashed changes
 	match value.size():
 		2:
 			match typeof(value[0]):
@@ -189,10 +145,7 @@ static func _convert_from_array(value: Array) -> Transform3D:
 	return converted_value
 
 #endregion
-<<<<<<< Updated upstream
-=======
 
 @warning_ignore("unused_parameter")
 func _init(array_size: int) -> void:
 	pass
->>>>>>> Stashed changes

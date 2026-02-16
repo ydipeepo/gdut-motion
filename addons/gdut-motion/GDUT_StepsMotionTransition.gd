@@ -30,14 +30,11 @@ func get_prime(x: float) -> float:
 
 #-------------------------------------------------------------------------------
 
-<<<<<<< Updated upstream
-=======
 #
 # Based on Anime.js (@juliangarnier) implementation:
 # //github.com/juliangarnier/anime/blob/master/src/easings/steps/index.js
 #
 
->>>>>>> Stashed changes
 var _segments: float
 var _inv_segments: float
 var _round: Callable

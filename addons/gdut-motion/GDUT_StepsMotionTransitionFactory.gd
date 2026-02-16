@@ -9,27 +9,13 @@ func get_name() -> StringName:
 
 func set_segments(value: int) -> void:
 	if value < GDUT_StepsMotionTransition.MIN_SEGMENTS:
-<<<<<<< Updated upstream
-		GDUT_Motion.print_warning(
-			&"BAD_SEGMENTS",
-			get_name(),
-			value)
-=======
 		GDUT_Motion.print_warning(&"BAD_SEGMENTS", get_name(), value)
->>>>>>> Stashed changes
 		value = GDUT_StepsMotionTransition.MIN_SEGMENTS
 	_segments = value
 
 func set_round(value: int) -> void:
 	if value not in GDUT_StepsMotionTransition.VALID_ROUND:
-<<<<<<< Updated upstream
-		GDUT_Motion.print_warning(
-			&"BAD_ROUND",
-			get_name(),
-			value)
-=======
 		GDUT_Motion.print_warning(&"BAD_ROUND", get_name(), value)
->>>>>>> Stashed changes
 		value = GDUT_StepsMotionTransition.DEFAULT_ROUND
 	_round = value
 

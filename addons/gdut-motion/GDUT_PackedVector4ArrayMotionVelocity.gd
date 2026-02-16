@@ -4,52 +4,6 @@ class_name GDUT_PackedVector4ArrayMotionVelocity extends GDUT_MotionVelocity
 #	METHODS
 #-------------------------------------------------------------------------------
 
-<<<<<<< Updated upstream
-@warning_ignore("unused_parameter")
-static func create(array_size: int) -> GDUT_MotionVelocity:
-	return new(array_size)
-
-static func validate_incoming_value(value: Variant, array_size: int) -> bool:
-	match typeof(value):
-		TYPE_ARRAY:
-			if not _can_convert_from_array(value, array_size):
-				return false
-		TYPE_PACKED_INT32_ARRAY:
-			if not _can_convert_from_packed_int32_array(value, array_size):
-				return false
-		TYPE_PACKED_INT64_ARRAY:
-			if not _can_convert_from_packed_int64_array(value, array_size):
-				return false
-		TYPE_PACKED_FLOAT32_ARRAY:
-			if not _can_convert_from_packed_float32_array(value, array_size):
-				return false
-		TYPE_PACKED_FLOAT64_ARRAY:
-			if not _can_convert_from_packed_float64_array(value, array_size):
-				return false
-		TYPE_PACKED_VECTOR4_ARRAY:
-			if not _can_convert_from_packed_vector4_array(value, array_size):
-				return false
-		_:
-			return false
-	return true
-
-func set_incoming_value(value: Variant) -> void:
-	match typeof(value):
-		TYPE_ARRAY:
-			_convert_from_array(value)
-		TYPE_PACKED_INT32_ARRAY:
-			_convert_from_packed_int32_array(value)
-		TYPE_PACKED_INT64_ARRAY:
-			_convert_from_packed_int64_array(value)
-		TYPE_PACKED_FLOAT32_ARRAY:
-			_convert_from_packed_float32_array(value)
-		TYPE_PACKED_FLOAT64_ARRAY:
-			_convert_from_packed_float64_array(value)
-		TYPE_PACKED_VECTOR4_ARRAY:
-			_convert_from_packed_vector4_array(value)
-
-func get_outgoing_value() -> Variant:
-=======
 static func can_convert(value: Variant, array_size: int) -> bool:
 	var can_convert: Callable = _packed_vector4_array_can_convert_map.get(typeof(value))
 	return can_convert.is_valid() and can_convert.call(value, array_size)
@@ -60,7 +14,6 @@ func set_value(value: Variant) -> void:
 	convert.call(value, _array)
 
 func get_value() -> Variant:
->>>>>>> Stashed changes
 	return _array
 
 func set_value_at(index: int, value: float) -> void:
@@ -75,8 +28,6 @@ var _array: Array[float]
 
 #region converters
 
-<<<<<<< Updated upstream
-=======
 static var _packed_vector4_array_can_convert_map: Dictionary[int, Callable] = {
 	TYPE_ARRAY: _can_convert_from_array,
 	TYPE_PACKED_INT32_ARRAY: _can_convert_from_packed_int32_array,
@@ -95,7 +46,6 @@ static var _packed_vector4_array_convert_map: Dictionary[int, Callable] = {
 	TYPE_PACKED_VECTOR4_ARRAY: _convert_from_packed_vector4_array,
 }
 
->>>>>>> Stashed changes
 static func _can_convert_from_array(array: Array, array_size: int) -> bool:
 	match array.get_typed_builtin():
 		TYPE_NIL:
@@ -190,11 +140,7 @@ static func _can_convert_from_packed_float64_array(array: PackedFloat64Array, ar
 static func _can_convert_from_packed_vector4_array(array: PackedVector4Array, array_size: int) -> bool:
 	return array.size() == array_size
 
-<<<<<<< Updated upstream
-func _convert_from_array(array: Array) -> void:
-=======
 static func _convert_from_array(array: Array, converted_array: Array[float]) -> void:
->>>>>>> Stashed changes
 	match array.get_typed_builtin():
 		TYPE_NIL:
 			var write := 0
@@ -202,16 +148,6 @@ static func _convert_from_array(array: Array, converted_array: Array[float]) -> 
 				match typeof(value):
 					TYPE_INT, \
 					TYPE_FLOAT:
-<<<<<<< Updated upstream
-						_array[write] = value
-						write += 1
-					TYPE_VECTOR4, \
-					TYPE_VECTOR4I:
-						_array[write + 0] = value.x
-						_array[write + 1] = value.y
-						_array[write + 2] = value.z
-						_array[write + 3] = value.w
-=======
 						converted_array[write] = value
 						write += 1
 					TYPE_VECTOR4, \
@@ -220,23 +156,10 @@ static func _convert_from_array(array: Array, converted_array: Array[float]) -> 
 						converted_array[write + 1] = value.y
 						converted_array[write + 2] = value.z
 						converted_array[write + 3] = value.w
->>>>>>> Stashed changes
 						write += 4
 					TYPE_ARRAY:
 						match value.size():
 							1:
-<<<<<<< Updated upstream
-								_array[write + 0] = value[0]
-								_array[write + 1] = value[0]
-								_array[write + 2] = value[0]
-								_array[write + 3] = value[0]
-								write += 4
-							4:
-								_array[write + 0] = value[0]
-								_array[write + 1] = value[1]
-								_array[write + 2] = value[2]
-								_array[write + 3] = value[3]
-=======
 								converted_array[write + 0] = value[0]
 								converted_array[write + 1] = value[0]
 								converted_array[write + 2] = value[0]
@@ -247,83 +170,28 @@ static func _convert_from_array(array: Array, converted_array: Array[float]) -> 
 								converted_array[write + 1] = value[1]
 								converted_array[write + 2] = value[2]
 								converted_array[write + 3] = value[3]
->>>>>>> Stashed changes
 								write += 4
 		TYPE_INT:
 			var write := 0
 			for value: int in array:
-<<<<<<< Updated upstream
-				_array[write] = value
-=======
 				converted_array[write] = value
->>>>>>> Stashed changes
 				write += 1
 		TYPE_FLOAT:
 			var write := 0
 			for value: float in array:
-<<<<<<< Updated upstream
-				_array[write] = value
-=======
 				converted_array[write] = value
->>>>>>> Stashed changes
 				write += 1
 		TYPE_VECTOR4:
 			var write := 0
 			for value: Vector4 in array:
-<<<<<<< Updated upstream
-				_array[write + 0] = value.x
-				_array[write + 1] = value.y
-				_array[write + 2] = value.z
-				_array[write + 3] = value.w
-=======
 				converted_array[write + 0] = value.x
 				converted_array[write + 1] = value.y
 				converted_array[write + 2] = value.z
 				converted_array[write + 3] = value.w
->>>>>>> Stashed changes
 				write += 4
 		TYPE_VECTOR4I:
 			var write := 0
 			for value: Vector4i in array:
-<<<<<<< Updated upstream
-				_array[write + 0] = value.x
-				_array[write + 1] = value.y
-				_array[write + 2] = value.z
-				_array[write + 3] = value.w
-				write += 4
-
-func _convert_from_packed_int32_array(array: PackedInt32Array) -> void:
-	var write := 0
-	for value: int in array:
-		_array[write] = value
-		write += 1
-
-func _convert_from_packed_int64_array(array: PackedInt64Array) -> void:
-	var write := 0
-	for value: int in array:
-		_array[write] = value
-		write += 1
-
-func _convert_from_packed_float32_array(array: PackedFloat32Array) -> void:
-	var write := 0
-	for value: float in array:
-		_array[write] = value
-		write += 1
-
-func _convert_from_packed_float64_array(array: PackedFloat64Array) -> void:
-	var write := 0
-	for value: float in array:
-		_array[write] = value
-		write += 1
-
-func _convert_from_packed_vector4_array(array: PackedVector4Array) -> void:
-	var write := 0
-	for value: Vector4 in array:
-		_array[write + 0] = value.x
-		_array[write + 1] = value.y
-		_array[write + 2] = value.z
-		_array[write + 3] = value.w
-=======
 				converted_array[write + 0] = value.x
 				converted_array[write + 1] = value.y
 				converted_array[write + 2] = value.z
@@ -361,7 +229,6 @@ static func _convert_from_packed_vector4_array(array: PackedVector4Array, conver
 		converted_array[write + 1] = value.y
 		converted_array[write + 2] = value.z
 		converted_array[write + 3] = value.w
->>>>>>> Stashed changes
 		write += 4
 
 #endregion

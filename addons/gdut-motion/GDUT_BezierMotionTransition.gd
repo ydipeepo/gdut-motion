@@ -38,27 +38,16 @@ func get_prime(x: float) -> float:
 
 #-------------------------------------------------------------------------------
 
-<<<<<<< Updated upstream
-=======
 #
 # Based on 'bezier-easing' (@gre) implementation:
 # //github.com/gre/bezier-easing/blob/master/src/index.js
 #
 
->>>>>>> Stashed changes
 const _SUBDIVISION_MAX_ITERS := 10
 
 var _x: Vector3
 var _y: Vector3
 
-<<<<<<< Updated upstream
-#
-# This bezier curve for transition easing function
-# from 'bezier-easing' by Gaëtan Renaudeau (@gre)
-#
-
-=======
->>>>>>> Stashed changes
 func _calc_bezier_x(t: float) -> float:
 	return ((_x.x * t + _x.y) * t + _x.z) * t
 

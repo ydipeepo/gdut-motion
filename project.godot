@@ -16,11 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="GDUT Motion"
 config/description="This add-on animates any property or method using easing and continuous physics-based transition."
-<<<<<<< Updated upstream
-config/tags=PackedStringArray("gdut", "private")
-=======
 config/tags=PackedStringArray("gdut")
->>>>>>> Stashed changes
 run/main_scene="uid://bmw87skbskdl0"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/bg_color=Color(0.93333334, 0.93333334, 0.93333334, 1)

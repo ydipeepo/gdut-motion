@@ -1,31 +1,10 @@
-<<<<<<< Updated upstream
-=======
 ## Tween motion expression.
->>>>>>> Stashed changes
 class_name TweenMotionExpression extends MotionExpression
 
 #-------------------------------------------------------------------------------
 #	CONSTANTS
 #-------------------------------------------------------------------------------
 
-<<<<<<< Updated upstream
-const EASE_IN := GDUT_TweenMotionTransition.EASE_IN
-const EASE_OUT := GDUT_TweenMotionTransition.EASE_OUT
-const EASE_IN_OUT := GDUT_TweenMotionTransition.EASE_IN_OUT
-const EASE_OUT_IN := GDUT_TweenMotionTransition.EASE_OUT_IN
-
-const TRANS_LINEAR := GDUT_TweenMotionTransition.TRANS_LINEAR
-const TRANS_SINE := GDUT_TweenMotionTransition.TRANS_SINE
-const TRANS_QUINT := GDUT_TweenMotionTransition.TRANS_QUINT
-const TRANS_QUART := GDUT_TweenMotionTransition.TRANS_QUART
-const TRANS_QUAD := GDUT_TweenMotionTransition.TRANS_QUAD
-const TRANS_EXPO := GDUT_TweenMotionTransition.TRANS_EXPO
-const TRANS_ELASTIC := GDUT_TweenMotionTransition.TRANS_ELASTIC
-const TRANS_CUBIC := GDUT_TweenMotionTransition.TRANS_CUBIC
-const TRANS_CIRC := GDUT_TweenMotionTransition.TRANS_CIRC
-const TRANS_BOUNCE := GDUT_TweenMotionTransition.TRANS_BOUNCE
-const TRANS_BACK := GDUT_TweenMotionTransition.TRANS_BACK
-=======
 ## Ease-in. Starts slow and accelerates towards the end. Same as [constant Tween.EASE_IN].
 const EASE_IN := GDUT_TweenMotionTransition.EASE_IN
 ## Ease-out. Accelerates at the start and decelerates towards the end. Same as [constant Tween.EASE_OUT].
@@ -58,49 +37,25 @@ const TRANS_BOUNCE := GDUT_TweenMotionTransition.TRANS_BOUNCE
 ## Back interpolation. Overshoots slightly before reaching the target value. Same as [constant Tween.TRANS_BACK].
 const TRANS_BACK := GDUT_TweenMotionTransition.TRANS_BACK
 ## Spring interpolation. Converges to the target value while oscillating. Same as [constant Tween.TRANS_SPRING].
->>>>>>> Stashed changes
 const TRANS_SPRING := GDUT_TweenMotionTransition.TRANS_SPRING
 
 #-------------------------------------------------------------------------------
 #	METHODS
 #-------------------------------------------------------------------------------
 
-<<<<<<< Updated upstream
-func get_proxy() -> MotionProxy:
-	return _transition_factory.get_proxy()
-
-=======
 func get_target() -> GDUT_MotionTarget:
 	return _transition_factory.get_target()
 
 ## Loads a preset.
->>>>>>> Stashed changes
 func preset(value: StringName) -> TweenMotionExpression:
 	_transition_factory.load_preset(value)
 	return self
 
-<<<<<<< Updated upstream
-=======
 ## Sets the easing direction.
->>>>>>> Stashed changes
 func ease(value: int) -> TweenMotionExpression:
 	_transition_factory.set_ease(value)
 	return self
 
-<<<<<<< Updated upstream
-func ease_in() -> TweenMotionExpression:
-	return self.ease(EASE_IN)
-
-func ease_out() -> TweenMotionExpression:
-	return self.ease(EASE_OUT)
-
-func ease_in_out() -> TweenMotionExpression:
-	return self.ease(EASE_IN_OUT)
-
-func ease_out_in() -> TweenMotionExpression:
-	return self.ease(EASE_OUT_IN)
-
-=======
 ## Sets the easing direction to [constant EASE_IN].
 func ease_in() -> TweenMotionExpression:
 	return self.ease(EASE_IN)
@@ -118,49 +73,10 @@ func ease_out_in() -> TweenMotionExpression:
 	return self.ease(EASE_OUT_IN)
 
 ## Sets the interpolation method.
->>>>>>> Stashed changes
 func trans(value: int) -> TweenMotionExpression:
 	_transition_factory.set_trans(value)
 	return self
 
-<<<<<<< Updated upstream
-func trans_linear() -> TweenMotionExpression:
-	return trans(TRANS_LINEAR)
-
-func trans_sine() -> TweenMotionExpression:
-	return trans(TRANS_SINE)
-
-func trans_quint() -> TweenMotionExpression:
-	return trans(TRANS_QUINT)
-
-func trans_quart() -> TweenMotionExpression:
-	return trans(TRANS_QUART)
-
-func trans_quad() -> TweenMotionExpression:
-	return trans(TRANS_QUAD)
-
-func trans_expo() -> TweenMotionExpression:
-	return trans(TRANS_EXPO)
-
-func trans_elastic() -> TweenMotionExpression:
-	return trans(TRANS_ELASTIC)
-
-func trans_cubic() -> TweenMotionExpression:
-	return trans(TRANS_CUBIC)
-
-func trans_circ() -> TweenMotionExpression:
-	return trans(TRANS_CIRC)
-
-func trans_bounce() -> TweenMotionExpression:
-	return trans(TRANS_BOUNCE)
-
-func trans_back() -> TweenMotionExpression:
-	return trans(TRANS_BACK)
-
-func trans_spring() -> TweenMotionExpression:
-	return trans(TRANS_SPRING)
-
-=======
 ## Sets the interpolation method to [constant TRANS_LINEAR].
 func trans_linear() -> TweenMotionExpression:
 	return trans(TRANS_LINEAR)
@@ -210,43 +126,25 @@ func trans_spring() -> TweenMotionExpression:
 	return trans(TRANS_SPRING)
 
 ## Sets the duration.
->>>>>>> Stashed changes
 func duration(value: float) -> TweenMotionExpression:
 	_transition_factory.set_duration(value)
 	return self
 
-<<<<<<< Updated upstream
-=======
 ## Sets the initial position. If omitted, the current position is used.
->>>>>>> Stashed changes
 func from(value: Variant) -> TweenMotionExpression:
 	_transition_factory.set_initial_position(value)
 	return self
 
-<<<<<<< Updated upstream
-=======
 ## Sets the final position.
->>>>>>> Stashed changes
 func to(value: Variant) -> TweenMotionExpression:
 	_transition_factory.set_final_position(value)
 	return self
 
-<<<<<<< Updated upstream
-=======
 ## Sets the update timing.
->>>>>>> Stashed changes
 func process(value: int) -> TweenMotionExpression:
 	_transition_factory.set_process(value)
 	return self
 
-<<<<<<< Updated upstream
-func process_idle() -> TweenMotionExpression:
-	return super()
-
-func process_physics() -> TweenMotionExpression:
-	return super()
-
-=======
 ## Sets the update timing to [constant MotionExpression.PROCESS_IDLE].
 func process_idle() -> TweenMotionExpression:
 	return super()
@@ -256,7 +154,6 @@ func process_physics() -> TweenMotionExpression:
 	return super()
 
 ## Sets the delay.
->>>>>>> Stashed changes
 func delay(value: float) -> TweenMotionExpression:
 	_transition_factory.set_delay(value)
 	return self

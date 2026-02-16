@@ -5,13 +5,6 @@ class_name GDUT_MotionVelocity
 #	METHODS
 #-------------------------------------------------------------------------------
 
-<<<<<<< Updated upstream
-@abstract
-func set_incoming_value(value: Variant) -> void
-
-@abstract
-func get_outgoing_value() -> Variant
-=======
 static func is_valid_value(
 	value: Variant,
 	value_type: int,
@@ -32,15 +25,12 @@ func set_value(value: Variant) -> void
 
 @abstract
 func get_value() -> Variant
->>>>>>> Stashed changes
 
 @abstract
 func set_value_at(index: int, value: float) -> void
 
 @abstract
 func get_value_at(index: int) -> float
-<<<<<<< Updated upstream
-=======
 
 #-------------------------------------------------------------------------------
 
@@ -88,4 +78,3 @@ static var _create_map: Dictionary[int, Callable] = {
 	TYPE_PACKED_COLOR_ARRAY: GDUT_PackedVector4ArrayMotionVelocity.new,
 	TYPE_PACKED_VECTOR4_ARRAY: GDUT_PackedVector4ArrayMotionVelocity.new,
 }
->>>>>>> Stashed changes

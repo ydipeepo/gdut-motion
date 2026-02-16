@@ -4,13 +4,8 @@ class_name GDUT_MotionProcessor extends Node
 #	METHODS
 #-------------------------------------------------------------------------------
 
-<<<<<<< Updated upstream
-func get_proxy() -> MotionProxy:
-	return _proxy
-=======
 func get_target() -> GDUT_MotionTarget:
 	return _target
->>>>>>> Stashed changes
 
 func schedule_transition(
 	transition_factory: GDUT_MotionTransitionFactory,
@@ -34,17 +29,10 @@ func schedule_transition(
 	_scheduled_completions.push_back(completion)
 	return completion[0]
 
-<<<<<<< Updated upstream
-func equals(proxy: MotionProxy) -> bool:
-	return \
-		_proxy.is_valid() and \
-		_proxy.equals(proxy)
-=======
 func equals(target: GDUT_MotionTarget) -> bool:
 	return \
 		_target.is_valid() and \
 		_target.equals(target)
->>>>>>> Stashed changes
 
 #-------------------------------------------------------------------------------
 
@@ -54,11 +42,7 @@ var _retention_duration: float
 var _scheduled: bool
 var _scheduled_transition_factories: Array[GDUT_MotionTransitionFactory]
 var _scheduled_completions: Array[Array]
-<<<<<<< Updated upstream
-var _proxy: MotionProxy
-=======
 var _target: GDUT_MotionTarget
->>>>>>> Stashed changes
 var _state: GDUT_MotionState
 var _timer: GDUT_MotionTimer
 var _timer_process_changed: bool
@@ -69,11 +53,7 @@ func _create_transition() -> void:
 		_transition.cancel()
 		_transition = null
 
-<<<<<<< Updated upstream
-	if not _proxy.is_valid():
-=======
 	if not _target.is_valid():
->>>>>>> Stashed changes
 		for completion: Array in _scheduled_completions:
 			completion[2].call()
 		_scheduled_transition_factories.clear()
@@ -102,13 +82,8 @@ func _create_transition() -> void:
 		return
 
 	if _state == null:
-<<<<<<< Updated upstream
-		_state = GDUT_MotionState.create(_proxy)
-		_state.set_position(_proxy.get_value())
-=======
 		_state = GDUT_MotionState.new(_target)
 		_state.set_position(_target.get_value())
->>>>>>> Stashed changes
 
 	_timer.reset()
 
@@ -123,26 +98,15 @@ func _stop() -> void:
 	_retention = true
 	_retention_start_ticks = GDUT_Motion.get_ticks()
 
-<<<<<<< Updated upstream
-func _init(proxy: MotionProxy, retention_duration: float) -> void:
-	assert(proxy != null)
-=======
 func _init(target: GDUT_MotionTarget, retention_duration: float) -> void:
 	assert(target != null)
->>>>>>> Stashed changes
 	assert(0.0 <= retention_duration)
 
 	_retention_duration = retention_duration
 	_timer = GDUT_MotionTimer.new()
-<<<<<<< Updated upstream
-	_proxy = proxy
-
-	name = "Processor_%s" % _proxy.get_name()
-=======
 	_target = target
 
 	name = "Processor_%s" % _target.get_name()
->>>>>>> Stashed changes
 
 func _process_core(process: int) -> void:
 	if _retention:
@@ -170,11 +134,7 @@ func _process_core(process: int) -> void:
 		while _timer.is_delta_ticks_left():
 			_transition = _transition.next(_state, _timer)
 
-<<<<<<< Updated upstream
-			if not _proxy.is_valid():
-=======
 			if not _target.is_valid():
->>>>>>> Stashed changes
 				assert(not _scheduled)
 				if _transition != null:
 					_transition.cancel()
@@ -182,11 +142,7 @@ func _process_core(process: int) -> void:
 				_stop_then_free()
 				return
 
-<<<<<<< Updated upstream
-			_proxy.set_value(_state.get_position())
-=======
 			_target.set_value(_state.get_position())
->>>>>>> Stashed changes
 
 			if _transition == null:
 				if not _scheduled:

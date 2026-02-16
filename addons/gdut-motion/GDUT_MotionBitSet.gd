@@ -5,13 +5,6 @@ class_name GDUT_MotionBitSet
 #	METHODS
 #-------------------------------------------------------------------------------
 
-<<<<<<< Updated upstream
-@abstract
-func set_value_at(index: int, value: bool) -> void
-
-@abstract
-func get_value_at(index: int) -> bool
-=======
 static func create(
 	value_size: int,
 	array_size: int) -> GDUT_MotionBitSet:
@@ -36,4 +29,3 @@ func clear_at(index: int) -> void
 
 #@abstract
 #func clear() -> void
->>>>>>> Stashed changes

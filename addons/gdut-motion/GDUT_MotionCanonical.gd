@@ -34,110 +34,6 @@ static func print_error(message_name: StringName, ...message_args: Array) -> voi
 	if _canonical != null and not _canonical._suppress_error_message:
 		push_error(get_message_v(message_name, message_args))
 
-<<<<<<< Updated upstream
-static func validate_method_name_init(init: Array) -> bool:
-	match init.size():
-		3 when init[0] is Object and (init[1] is StringName or init[1] is String) and init[2] is int:
-			if init[0].has_method(init[1]):
-				return true
-		2 when init[0] is Object and (init[1] is StringName or init[1] is String):
-			if init[0].has_method(init[1]):
-				return true
-	return false
-
-static func validate_method_init(init: Array) -> bool:
-	match init.size():
-		2 when init[0] is Callable and init[1] is int:
-			return true
-		1 when init[0] is Callable:
-			return true
-	return false
-
-static func validate_property_init(init: Array) -> bool:
-	match init.size():
-		3 when init[0] is Object and (init[1] is StringName or init[1] is String or init[1] is NodePath) and init[2] is int:
-			return true
-		2 when init[0] is Object and (init[1] is StringName or init[1] is String or init[1] is NodePath):
-			return true
-	return false
-
-static func validate_proxy_init(init: Array) -> bool:
-	match init.size():
-		1 when init[0] is MotionProxy:
-			return true
-	return false
-
-static func get_method_name_init_target(init: Array) -> Object:
-	return init[0]
-
-static func get_method_name_init_target_method_name(init: Array) -> StringName:
-	return init[1]
-
-static func get_method_name_init_target_value_type_hint(init: Array) -> int:
-	return \
-		init[2] \
-		if init.size() == 3 and init[2] is int else \
-		TYPE_NIL
-
-static func get_method_init_target_method(init: Array) -> Callable:
-	return init[0]
-
-static func get_method_init_target_value_type_hint(init: Array) -> int:
-	return \
-		init[1] \
-		if init.size() == 2 and init[1] is int else \
-		TYPE_NIL
-
-static func get_property_init_target(init: Array) -> Object:
-	return init[0]
-
-static func get_property_init_target_property_path(init: Array) -> NodePath:
-	return str(init[1]) if init[1] is StringName else init[1]
-
-static func get_property_init_target_value_type_hint(init: Array) -> int:
-	return \
-		init[2] \
-		if init.size() == 3 and init[2] is int else \
-		TYPE_NIL
-
-static func get_proxy_init_proxy(init: Array) -> MotionProxy:
-	return init[0]
-
-static func validate_incoming_position(proxy: MotionProxy, value: Variant) -> bool:
-	var validate := _validate_incoming_position_value_map[proxy.get_value_type()]
-	return \
-		not validate.is_null() and \
-		validate.call(value, proxy.get_array_size())
-
-static func validate_incoming_velocity(proxy: MotionProxy, value: Variant) -> bool:
-	var validate := _validate_incoming_velocity_value_map[proxy.get_value_type()]
-	return \
-		not validate.is_null() and \
-		validate.call(value, proxy.get_array_size())
-
-static func create_position(proxy: MotionProxy) -> GDUT_MotionPosition:
-	var position: GDUT_MotionPosition
-	var create_position := _create_position_map[proxy.get_value_type()]
-	if create_position.is_valid():
-		position = create_position.call(proxy.get_array_size())
-	return position
-
-static func create_velocity(proxy: MotionProxy) -> GDUT_MotionVelocity:
-	var velocity: GDUT_MotionVelocity
-	var create_velocity := _create_velocity_map[proxy.get_value_type()]
-	if create_velocity.is_valid():
-		velocity = create_velocity.call(proxy.get_array_size())
-	return velocity
-
-static func create_bitset(proxy: MotionProxy) -> GDUT_MotionBitSet:
-	var bitset: GDUT_MotionBitSet
-	var create_bitset := _create_bitset_map[proxy.get_value_type()]
-	if create_bitset.is_valid():
-		bitset = create_bitset.call(proxy.get_value_size(), proxy.get_array_size())
-	return bitset
-
-=======
->>>>>>> Stashed changes
 static func get_composite_time_scale() -> float:
 	var time_scale := Engine.time_scale
 	if _canonical != null:
@@ -147,17 +43,6 @@ static func get_composite_time_scale() -> float:
 static func get_ticks() -> int:
 	return Time.get_ticks_msec()
 
-<<<<<<< Updated upstream
-func merge_proxy(proxy: MotionProxy) -> MotionProxy:
-	var processor: GDUT_MotionProcessor
-	for processor_candidate: GDUT_MotionProcessor in get_children():
-		if not processor_candidate.is_queued_for_deletion():
-			var proxy_candidate := processor_candidate.get_proxy()
-			if proxy_candidate.equals(proxy):
-				proxy = proxy_candidate
-				break
-	return proxy
-=======
 func merge_target(target: GDUT_MotionTarget) -> GDUT_MotionTarget:
 	var processor: GDUT_MotionProcessor
 	for processor_candidate: GDUT_MotionProcessor in get_children():
@@ -167,7 +52,6 @@ func merge_target(target: GDUT_MotionTarget) -> GDUT_MotionTarget:
 				target = target_candidate
 				break
 	return target
->>>>>>> Stashed changes
 
 func schedule_transition(
 	transition_factory: GDUT_MotionTransitionFactory,
@@ -175,23 +59,14 @@ func schedule_transition(
 
 	assert(transition_factory != null)
 
-<<<<<<< Updated upstream
-	var proxy := transition_factory.get_proxy()
-	assert(proxy.is_valid())
-=======
 	var target := transition_factory.get_target()
 	assert(target.is_valid())
->>>>>>> Stashed changes
 
 	var processor: GDUT_MotionProcessor
 	for processor_candidate: GDUT_MotionProcessor in get_children():
 		if \
 			not processor_candidate.is_queued_for_deletion() and \
-<<<<<<< Updated upstream
-			processor_candidate.equals(proxy):
-=======
 			processor_candidate.equals(target):
->>>>>>> Stashed changes
 
 			move_child(processor_candidate, get_child_count())
 			processor = processor_candidate
@@ -199,11 +74,7 @@ func schedule_transition(
 
 	if processor == null:
 		processor = GDUT_MotionProcessor.new(
-<<<<<<< Updated upstream
-			proxy,
-=======
 			target,
->>>>>>> Stashed changes
 			_retention_duration)
 		add_child(processor)
 
@@ -233,139 +104,6 @@ const _VALID_USER_TIME_SCALE_ARRAY: Array[float] = [
 	16.0,
 ]
 
-<<<<<<< Updated upstream
-class _LambdaComparer:
-
-	func is_same_method(method: Callable) -> bool:
-		return _signal.is_connected(method)
-
-	func is_same_method_name(object: Object, method_name: StringName) -> bool:
-		return _signal.is_connected(Callable(object, method_name))
-
-	#
-	# Since the functionality provided by Callable alone cannot compare
-	# named lambdas and class methods, so perform equivalence comparison of
-	# the call destination by once connecting to a signal and checking if
-	# it is connected.
-	#
-
-	signal _signal
-
-	func _init(method: Callable) -> void:
-		_signal.connect(method)
-
-static var _validate_incoming_position_value_map: Dictionary[int, Callable] = {
-	TYPE_INT: GDUT_IntMotionPosition.validate_incoming_value,
-	TYPE_FLOAT: GDUT_FloatMotionPosition.validate_incoming_value,
-	TYPE_VECTOR2: GDUT_Vector2MotionPosition.validate_incoming_value,
-	TYPE_VECTOR2I: GDUT_Vector2iMotionPosition.validate_incoming_value,
-	TYPE_VECTOR3: GDUT_Vector3MotionPosition.validate_incoming_value,
-	TYPE_VECTOR3I: GDUT_Vector3iMotionPosition.validate_incoming_value,
-	TYPE_TRANSFORM2D: GDUT_Transform2DMotionPosition.validate_incoming_value,
-	TYPE_VECTOR4: GDUT_Vector4MotionPosition.validate_incoming_value,
-	TYPE_VECTOR4I: GDUT_Vector4iMotionPosition.validate_incoming_value,
-	TYPE_BASIS: GDUT_BasisMotionPosition.validate_incoming_value,
-	TYPE_TRANSFORM3D: GDUT_Transform3DMotionPosition.validate_incoming_value,
-	TYPE_COLOR: GDUT_ColorMotionPosition.validate_incoming_value,
-	TYPE_PACKED_INT32_ARRAY: GDUT_PackedInt32ArrayMotionPosition.validate_incoming_value,
-	TYPE_PACKED_INT64_ARRAY: GDUT_PackedInt64ArrayMotionPosition.validate_incoming_value,
-	TYPE_PACKED_FLOAT32_ARRAY: GDUT_PackedFloat32ArrayMotionPosition.validate_incoming_value,
-	TYPE_PACKED_FLOAT64_ARRAY: GDUT_PackedFloat64ArrayMotionPosition.validate_incoming_value,
-	TYPE_PACKED_VECTOR2_ARRAY: GDUT_PackedVector2ArrayMotionPosition.validate_incoming_value,
-	TYPE_PACKED_VECTOR3_ARRAY: GDUT_PackedVector3ArrayMotionPosition.validate_incoming_value,
-	TYPE_PACKED_COLOR_ARRAY: GDUT_PackedColorArrayMotionPosition.validate_incoming_value,
-	TYPE_PACKED_VECTOR4_ARRAY: GDUT_PackedVector4ArrayMotionPosition.validate_incoming_value,
-}
-static var _validate_incoming_velocity_value_map: Dictionary[int, Callable] = {
-	TYPE_INT: GDUT_FloatMotionVelocity.validate_incoming_value,
-	TYPE_FLOAT: GDUT_FloatMotionVelocity.validate_incoming_value,
-	TYPE_VECTOR2: GDUT_Vector2MotionVelocity.validate_incoming_value,
-	TYPE_VECTOR2I: GDUT_Vector2MotionVelocity.validate_incoming_value,
-	TYPE_VECTOR3: GDUT_Vector3MotionVelocity.validate_incoming_value,
-	TYPE_VECTOR3I: GDUT_Vector3MotionVelocity.validate_incoming_value,
-	TYPE_TRANSFORM2D: GDUT_Transform2DMotionVelocity.validate_incoming_value,
-	TYPE_VECTOR4: GDUT_Vector4MotionVelocity.validate_incoming_value,
-	TYPE_VECTOR4I: GDUT_Vector4MotionVelocity.validate_incoming_value,
-	TYPE_BASIS: GDUT_BasisMotionVelocity.validate_incoming_value,
-	TYPE_TRANSFORM3D: GDUT_Transform3DMotionVelocity.validate_incoming_value,
-	TYPE_COLOR: GDUT_Vector4MotionVelocity.validate_incoming_value,
-	TYPE_PACKED_INT32_ARRAY: GDUT_PackedFloat32ArrayMotionVelocity.validate_incoming_value,
-	TYPE_PACKED_INT64_ARRAY: GDUT_PackedFloat64ArrayMotionVelocity.validate_incoming_value,
-	TYPE_PACKED_FLOAT32_ARRAY: GDUT_PackedFloat32ArrayMotionVelocity.validate_incoming_value,
-	TYPE_PACKED_FLOAT64_ARRAY: GDUT_PackedFloat64ArrayMotionVelocity.validate_incoming_value,
-	TYPE_PACKED_VECTOR2_ARRAY: GDUT_PackedVector2ArrayMotionVelocity.validate_incoming_value,
-	TYPE_PACKED_VECTOR3_ARRAY: GDUT_PackedVector3ArrayMotionVelocity.validate_incoming_value,
-	TYPE_PACKED_COLOR_ARRAY: GDUT_PackedVector4ArrayMotionVelocity.validate_incoming_value,
-	TYPE_PACKED_VECTOR4_ARRAY: GDUT_PackedVector4ArrayMotionVelocity.validate_incoming_value,
-}
-static var _create_position_map: Dictionary[int, Callable] = {
-	TYPE_INT: GDUT_IntMotionPosition.create,
-	TYPE_FLOAT: GDUT_FloatMotionPosition.create,
-	TYPE_VECTOR2: GDUT_Vector2MotionPosition.create,
-	TYPE_VECTOR2I: GDUT_Vector2iMotionPosition.create,
-	TYPE_VECTOR3: GDUT_Vector3MotionPosition.create,
-	TYPE_VECTOR3I: GDUT_Vector3iMotionPosition.create,
-	TYPE_TRANSFORM2D: GDUT_Transform2DMotionPosition.create,
-	TYPE_VECTOR4: GDUT_Vector4MotionPosition.create,
-	TYPE_VECTOR4I: GDUT_Vector4iMotionPosition.create,
-	TYPE_BASIS: GDUT_BasisMotionPosition.create,
-	TYPE_TRANSFORM3D: GDUT_Transform3DMotionPosition.create,
-	TYPE_COLOR: GDUT_ColorMotionPosition.create,
-	TYPE_PACKED_INT32_ARRAY: GDUT_PackedInt32ArrayMotionPosition.create,
-	TYPE_PACKED_INT64_ARRAY: GDUT_PackedInt64ArrayMotionPosition.create,
-	TYPE_PACKED_FLOAT32_ARRAY: GDUT_PackedFloat32ArrayMotionPosition.create,
-	TYPE_PACKED_FLOAT64_ARRAY: GDUT_PackedFloat64ArrayMotionPosition.create,
-	TYPE_PACKED_VECTOR2_ARRAY: GDUT_PackedVector2ArrayMotionPosition.create,
-	TYPE_PACKED_VECTOR3_ARRAY: GDUT_PackedVector3ArrayMotionPosition.create,
-	TYPE_PACKED_COLOR_ARRAY: GDUT_PackedColorArrayMotionPosition.create,
-	TYPE_PACKED_VECTOR4_ARRAY: GDUT_PackedVector4ArrayMotionPosition.create,
-}
-static var _create_velocity_map: Dictionary[int, Callable] = {
-	TYPE_INT: GDUT_FloatMotionVelocity.create,
-	TYPE_FLOAT: GDUT_FloatMotionVelocity.create,
-	TYPE_VECTOR2: GDUT_Vector2MotionVelocity.create,
-	TYPE_VECTOR2I: GDUT_Vector2MotionVelocity.create,
-	TYPE_VECTOR3: GDUT_Vector3MotionVelocity.create,
-	TYPE_VECTOR3I: GDUT_Vector3MotionVelocity.create,
-	TYPE_TRANSFORM2D: GDUT_Transform2DMotionVelocity.create,
-	TYPE_VECTOR4: GDUT_Vector4MotionVelocity.create,
-	TYPE_VECTOR4I: GDUT_Vector4MotionVelocity.create,
-	TYPE_BASIS: GDUT_BasisMotionVelocity.create,
-	TYPE_TRANSFORM3D: GDUT_Transform3DMotionVelocity.create,
-	TYPE_COLOR: GDUT_Vector4MotionVelocity.create,
-	TYPE_PACKED_INT32_ARRAY: GDUT_PackedFloat32ArrayMotionVelocity.create,
-	TYPE_PACKED_INT64_ARRAY: GDUT_PackedFloat64ArrayMotionVelocity.create,
-	TYPE_PACKED_FLOAT32_ARRAY: GDUT_PackedFloat32ArrayMotionVelocity.create,
-	TYPE_PACKED_FLOAT64_ARRAY: GDUT_PackedFloat64ArrayMotionVelocity.create,
-	TYPE_PACKED_VECTOR2_ARRAY: GDUT_PackedVector2ArrayMotionVelocity.create,
-	TYPE_PACKED_VECTOR3_ARRAY: GDUT_PackedVector3ArrayMotionVelocity.create,
-	TYPE_PACKED_COLOR_ARRAY: GDUT_PackedVector4ArrayMotionVelocity.create,
-	TYPE_PACKED_VECTOR4_ARRAY: GDUT_PackedVector4ArrayMotionVelocity.create,
-}
-static var _create_bitset_map: Dictionary[int, Callable] = {
-	TYPE_INT: GDUT_SmallMotionBitSet.create,
-	TYPE_FLOAT: GDUT_SmallMotionBitSet.create,
-	TYPE_VECTOR2: GDUT_SmallMotionBitSet.create,
-	TYPE_VECTOR2I: GDUT_SmallMotionBitSet.create,
-	TYPE_VECTOR3: GDUT_SmallMotionBitSet.create,
-	TYPE_VECTOR3I: GDUT_SmallMotionBitSet.create,
-	TYPE_TRANSFORM2D: GDUT_SmallMotionBitSet.create,
-	TYPE_VECTOR4: GDUT_SmallMotionBitSet.create,
-	TYPE_VECTOR4I: GDUT_SmallMotionBitSet.create,
-	TYPE_BASIS: GDUT_SmallMotionBitSet.create,
-	TYPE_TRANSFORM3D: GDUT_SmallMotionBitSet.create,
-	TYPE_COLOR: GDUT_SmallMotionBitSet.create,
-	TYPE_PACKED_INT32_ARRAY: GDUT_LargeMotionBitSet.create,
-	TYPE_PACKED_INT64_ARRAY: GDUT_LargeMotionBitSet.create,
-	TYPE_PACKED_FLOAT32_ARRAY: GDUT_LargeMotionBitSet.create,
-	TYPE_PACKED_FLOAT64_ARRAY: GDUT_LargeMotionBitSet.create,
-	TYPE_PACKED_VECTOR2_ARRAY: GDUT_LargeMotionBitSet.create,
-	TYPE_PACKED_VECTOR3_ARRAY: GDUT_LargeMotionBitSet.create,
-	TYPE_PACKED_COLOR_ARRAY: GDUT_LargeMotionBitSet.create,
-	TYPE_PACKED_VECTOR4_ARRAY: GDUT_LargeMotionBitSet.create,
-}
-=======
->>>>>>> Stashed changes
 static var _canonical: GDUT_Motion
 var _translation_domain: TranslationDomain
 var _retention_duration: float
