@@ -19,7 +19,7 @@ await Motion \
 
 It was created for the following purposes:
 
-* Simpler to use than Tween.
+* Easy to use as `Tween`.
 * When rescheduling, velocity is preserved and curves are smoothly connected (limited to physics-based animations).
 * Animation curves can be configured from node (and resources), making them easy for designers to maintain.
 
@@ -42,7 +42,10 @@ At the appropriate timing, call the corresponding `Motion` method to start the a
 
 ```gdscript
 func _on_button_pressed() -> void:
-	Motion.tween($Button, "scale").preset("QUINT_IN").to(Vector2.ONE * 2.0)
+	Motion \
+		.tween($Button, "scale") \
+		.preset("QUINT_IN") \
+		.to(Vector2.ONE * 2.0)
 ```
 
 <br />
