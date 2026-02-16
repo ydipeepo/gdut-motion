@@ -25,6 +25,19 @@ It was created for the following purposes:
 
 <br />
 
+## Quick start
+
+#### Installation
+
+1. `git clone https://github.com/ydipeepo/gdut-motion.git` or [download release](https://github.com/ydipeepo/gdut-motion/releases).
+2. Then copy `addons/gdut-motion` directory into your project.
+3. And enable GDUT Motion from your project settings.
+
+> [!IMPORTANT]
+> [GDUT Task](https://github.com/ydipeepo/gdut-task) must be installed before using this add-on.
+
+<br />
+
 ## Usage
 
 When the add-on is enabled, the `Motion` class and the `MotionPresetBank` node become available.
@@ -104,19 +117,6 @@ await Motion \
 ```
 
 The expressions differ for each motion type. For details, please refer to the in-editor help.
-
-<br />
-
-## Quick start
-
-#### Installation
-
-1. `git clone https://github.com/ydipeepo/gdut-motion.git` or [download release](https://github.com/ydipeepo/gdut-motion/releases).
-2. Then copy `addons/gdut-motion` directory into your project.
-3. And enable GDUT Motion from your project settings.
-
-> [!IMPORTANT]
-> [GDUT Task](https://github.com/ydipeepo/gdut-task) must be installed before using this add-on.
 
 <br />
 
