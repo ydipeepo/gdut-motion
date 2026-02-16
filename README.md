@@ -7,7 +7,7 @@
 This add-on animates any property or method using easing and continuous physics-based transition.
 
 ```gdscript
-await Motion \
+Motion \
 	.tween(self, "position") \
 	.trans_elastic() \
 	.to(Vector2(500.0, 500.0))
