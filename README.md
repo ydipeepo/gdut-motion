@@ -25,63 +25,9 @@ It was created for the following purposes:
 
 <br />
 
-## Usage
+## Quick start
 
 When the add-on is enabled, the `Motion` class and the `MotionPresetBank` node become available.
-
-
-#### Using `Motion`
-
-This section explains how to start motions from code.
-
-There are two categories of motions: Perceived and Physics.
-
-* **Perceived motions**: complete within a specified duration.
-* **Physics motions**: vary in duration depending on the current velocity.
-
-Each of the following motion types can be started using the fixed methods defined in `Motion`.
-
-##### Perceived motions
-
-Type | Method name
----|---
-Tween motion | `Motion.tween()`
-Bezier motion | `Motion.bezier()`
-Linear motion | `Motion.linear()`
-Steps motion | `Motion.steps()`
-Irregular motion | `Motion.irregular()`
-
-##### Physics motions
-
-Type | Method name
----|---
-Spring motion | `Motion.spring()`
-Glide motion | `Motion.glide()`
-
-Each method returns an expression (`MotionExpression`). The expression has multiple self-returning methods, and calling these methods to configure the curve.
-
-```gdscript
-Motion \
-	.tween(self, "position:x") \
-	.duration(5.0) \
-	.trans_cubic() \
-	.ease_in() \
-	.to(150.0)
-```
-
-As an exception, the `wait()` method is used to pause until the motion completes.
-The `then` method returns a new expression for chaining subsequent motions.
-
-```gdscript
-await Motion \
-	.tween(self, "position:x") \
-	# ...
-	.then_bezier() \
-	.to(100.0) \
-	.wait()
-```
-
-The expressions differ for each motion type. For details, please refer to the in-editor help.
 
 #### Using `MotionPresetBank`
 
@@ -106,9 +52,58 @@ func _on_button_pressed() -> void:
 		.to(Vector2.ONE * 2.0)
 ```
 
-<br />
+#### Using `Motion`
 
-## Quick start
+This section explains how to start motions from code.
+
+There are two categories of motions:
+
+* **Perceived motions**: complete within a specified duration.
+* **Physics motions**: vary in duration depending on the current velocity.
+
+Each of the following motion types can be started using the methods defined in `Motion`.
+
+##### Perceived motions
+
+Type | Method name
+---|---
+Tween motion | `Motion.tween()`
+Bezier motion | `Motion.bezier()`
+Linear motion | `Motion.linear()`
+Steps motion | `Motion.steps()`
+Irregular motion | `Motion.irregular()`
+
+##### Physics motions
+
+Type | Method name
+---|---
+Spring motion | `Motion.spring()`
+Glide motion | `Motion.glide()`
+
+Each method returns an expression (`MotionExpression`). The expression has multiple self-returning methods, and calling these methods to configure the motion:
+
+```gdscript
+Motion \
+	.tween(self, "position:x") \
+	.duration(5.0) \
+	.trans_cubic() \
+	.ease_in() \
+	.to(150.0)
+```
+
+As an exception, the `wait()` method is used to pause until the motion completes.
+The `then_*` methods returns a new expression for chaining subsequent motions.
+
+```gdscript
+await Motion \
+	.tween(self, "position:x") \
+	# ...
+	.then_bezier() \
+	.to(100.0) \
+	.wait()
+```
+
+The expressions differ for each motion type. For details, please refer to the in-editor help.
 
 #### Installation
 
