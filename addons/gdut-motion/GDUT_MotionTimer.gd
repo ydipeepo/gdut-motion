@@ -18,9 +18,12 @@ var total_ticks: int:
 #	METHODS
 #-------------------------------------------------------------------------------
 
+<<<<<<< Updated upstream
 #static func get_raw_ticks() -> int:
 #	return Time.get_ticks_msec()
 
+=======
+>>>>>>> Stashed changes
 func is_delta_ticks_left() -> bool:
 	return 0 < _delta_ticks
 

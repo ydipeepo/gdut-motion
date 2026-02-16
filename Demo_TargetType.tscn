@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://bce8bs51vn4w7"]
+
+[ext_resource type="Script" uid="uid://tdsigeyp30ke" path="res://Demo_TargetType.gd" id="1_6je58"]
+[ext_resource type="Texture2D" uid="uid://bhrjwaf2fsy8k" path="res://assets/texture/icon.png" id="2_4b7nx"]
+
+[sub_resource type="SystemFont" id="SystemFont_626re"]
+subpixel_positioning = 0
+
+[node name="Demo_TargetType" type="Control" unique_id=835237470]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6je58")
+
+[node name="Title" type="Label" parent="." unique_id=893669983]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 62.0
+offset_right = 256.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_626re")
+theme_override_font_sizes/font_size = 24
+text = "Target Type"
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="." unique_id=923926147]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 104.0
+offset_right = 470.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_626re")
+theme_override_font_sizes/font_size = 12
+text = "Using the Motion singleton, you can easily animate property and method calls."
+vertical_alignment = 1
+
+[node name="Button_AnimateProperty" type="Button" parent="." unique_id=1830940454]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 208.0
+offset_right = 240.0
+offset_bottom = 240.0
+text = "Animate property"
+
+[node name="Button_AnimateMethod1" type="Button" parent="." unique_id=57654185]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 208.0
+offset_right = 432.0
+offset_bottom = 240.0
+text = "Animate method #1"
+
+[node name="Button_AnimateMethod2" type="Button" parent="." unique_id=38406580]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 208.0
+offset_right = 624.0
+offset_bottom = 240.0
+text = "Animate method #2"
+
+[node name="Panel" type="Panel" parent="." unique_id=1440741655]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 0
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 1216.0
+offset_bottom = 656.0
+
+[node name="Icon" type="TextureRect" parent="Panel" unique_id=287255783]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 496.0
+offset_top = 176.0
+offset_right = 528.0
+offset_bottom = 208.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_4b7nx")
+
+[connection signal="pressed" from="Button_AnimateProperty" to="." method="_on_button_animate_property_pressed"]
+[connection signal="pressed" from="Button_AnimateMethod1" to="." method="_on_button_animate_method_1_pressed"]
+[connection signal="pressed" from="Button_AnimateMethod2" to="." method="_on_button_animate_method_2_pressed"]

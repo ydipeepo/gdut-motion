@@ -34,6 +34,7 @@ static func print_error(message_name: StringName, ...message_args: Array) -> voi
 	if _canonical != null and not _canonical._suppress_error_message:
 		push_error(get_message_v(message_name, message_args))
 
+<<<<<<< Updated upstream
 static func validate_method_name_init(init: Array) -> bool:
 	match init.size():
 		3 when init[0] is Object and (init[1] is StringName or init[1] is String) and init[2] is int:
@@ -135,6 +136,8 @@ static func create_bitset(proxy: MotionProxy) -> GDUT_MotionBitSet:
 		bitset = create_bitset.call(proxy.get_value_size(), proxy.get_array_size())
 	return bitset
 
+=======
+>>>>>>> Stashed changes
 static func get_composite_time_scale() -> float:
 	var time_scale := Engine.time_scale
 	if _canonical != null:
@@ -144,6 +147,7 @@ static func get_composite_time_scale() -> float:
 static func get_ticks() -> int:
 	return Time.get_ticks_msec()
 
+<<<<<<< Updated upstream
 func merge_proxy(proxy: MotionProxy) -> MotionProxy:
 	var processor: GDUT_MotionProcessor
 	for processor_candidate: GDUT_MotionProcessor in get_children():
@@ -153,6 +157,17 @@ func merge_proxy(proxy: MotionProxy) -> MotionProxy:
 				proxy = proxy_candidate
 				break
 	return proxy
+=======
+func merge_target(target: GDUT_MotionTarget) -> GDUT_MotionTarget:
+	var processor: GDUT_MotionProcessor
+	for processor_candidate: GDUT_MotionProcessor in get_children():
+		if not processor_candidate.is_queued_for_deletion():
+			var target_candidate := processor_candidate.get_target()
+			if target_candidate.equals(target):
+				target = target_candidate
+				break
+	return target
+>>>>>>> Stashed changes
 
 func schedule_transition(
 	transition_factory: GDUT_MotionTransitionFactory,
@@ -160,14 +175,23 @@ func schedule_transition(
 
 	assert(transition_factory != null)
 
+<<<<<<< Updated upstream
 	var proxy := transition_factory.get_proxy()
 	assert(proxy.is_valid())
+=======
+	var target := transition_factory.get_target()
+	assert(target.is_valid())
+>>>>>>> Stashed changes
 
 	var processor: GDUT_MotionProcessor
 	for processor_candidate: GDUT_MotionProcessor in get_children():
 		if \
 			not processor_candidate.is_queued_for_deletion() and \
+<<<<<<< Updated upstream
 			processor_candidate.equals(proxy):
+=======
+			processor_candidate.equals(target):
+>>>>>>> Stashed changes
 
 			move_child(processor_candidate, get_child_count())
 			processor = processor_candidate
@@ -175,7 +199,11 @@ func schedule_transition(
 
 	if processor == null:
 		processor = GDUT_MotionProcessor.new(
+<<<<<<< Updated upstream
 			proxy,
+=======
+			target,
+>>>>>>> Stashed changes
 			_retention_duration)
 		add_child(processor)
 
@@ -205,6 +233,7 @@ const _VALID_USER_TIME_SCALE_ARRAY: Array[float] = [
 	16.0,
 ]
 
+<<<<<<< Updated upstream
 class _LambdaComparer:
 
 	func is_same_method(method: Callable) -> bool:
@@ -335,6 +364,8 @@ static var _create_bitset_map: Dictionary[int, Callable] = {
 	TYPE_PACKED_COLOR_ARRAY: GDUT_LargeMotionBitSet.create,
 	TYPE_PACKED_VECTOR4_ARRAY: GDUT_LargeMotionBitSet.create,
 }
+=======
+>>>>>>> Stashed changes
 static var _canonical: GDUT_Motion
 var _translation_domain: TranslationDomain
 var _retention_duration: float

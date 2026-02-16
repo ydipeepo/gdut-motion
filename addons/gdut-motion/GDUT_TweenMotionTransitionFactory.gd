@@ -9,19 +9,27 @@ func get_name() -> StringName:
 
 func set_ease(value: int) -> void:
 	if value not in GDUT_TweenMotionTransition.VALID_EASE:
+<<<<<<< Updated upstream
 		GDUT_Motion.print_warning(
 			&"BAD_EASE",
 			get_name(),
 			value)
+=======
+		GDUT_Motion.print_warning(&"BAD_EASE", get_name(), value)
+>>>>>>> Stashed changes
 		value = GDUT_TweenMotionTransition.DEFAULT_EASE
 	_ease = value
 
 func set_trans(value: int) -> void:
 	if value not in GDUT_TweenMotionTransition.VALID_TRANS:
+<<<<<<< Updated upstream
 		GDUT_Motion.print_warning(
 			&"BAD_TRANS",
 			get_name(),
 			value)
+=======
+		GDUT_Motion.print_warning(&"BAD_TRANS", get_name(), value)
+>>>>>>> Stashed changes
 		value = GDUT_TweenMotionTransition.DEFAULT_TRANS
 	_trans = value
 

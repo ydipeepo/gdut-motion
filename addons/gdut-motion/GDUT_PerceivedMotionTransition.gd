@@ -18,6 +18,15 @@ func get_completion() -> Task:
 func get_process() -> int:
 	return _process
 
+<<<<<<< Updated upstream
+=======
+@abstract
+func get_value(x: float) -> float
+
+@abstract
+func get_prime(x: float) -> float
+
+>>>>>>> Stashed changes
 func finish(state: GDUT_MotionState) -> void:
 	_completion[1].call(state.get_velocity())
 
@@ -29,8 +38,13 @@ func next(
 	timer: GDUT_MotionTimer) -> GDUT_MotionTransition:
 
 	if _first_call:
+<<<<<<< Updated upstream
 		state.create_initial_position(_initial_position)
 		state.create_final_position(_final_position)
+=======
+		state.reset_initial_position(_initial_position)
+		state.reset_final_position(_final_position)
+>>>>>>> Stashed changes
 
 		@warning_ignore("confusable_local_declaration")
 		var dy := get_prime(0.0)
@@ -41,7 +55,11 @@ func next(
 			var v := (p1 - p0) * dy * _inv_duration
 			state.set_position_at(k, p)
 			state.set_velocity_at(k, v)
+<<<<<<< Updated upstream
 			state.set_rest_at(k, false)
+=======
+			state.clear_rest_at(k)
+>>>>>>> Stashed changes
 		_first_call = false
 
 	_elapsed_ticks += timer.delta_ticks
@@ -69,17 +87,24 @@ func next(
 		var v := (p1 - p0) * dy * _inv_duration
 		state.set_position_at(k, p)
 		state.set_velocity_at(k, v)
+<<<<<<< Updated upstream
 		state.set_rest_at(k, true)
+=======
+		state.set_rest_at(k)
+>>>>>>> Stashed changes
 	timer.delta_ticks = _elapsed_ticks - (_duration_ticks - _trim_ticks)
 	finish(state)
 	return null
 
+<<<<<<< Updated upstream
 @abstract
 func get_value(x: float) -> float
 
 @abstract
 func get_prime(x: float) -> float
 
+=======
+>>>>>>> Stashed changes
 #-------------------------------------------------------------------------------
 
 var _first_call := true

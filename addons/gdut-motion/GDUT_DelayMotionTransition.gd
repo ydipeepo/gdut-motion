@@ -22,7 +22,10 @@ func next(
 	timer.delta_ticks -= _elapsed_ticks - _delay_ticks
 	return _transition
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 func finish(state: GDUT_MotionState) -> void:
 	_transition.finish(state)
 

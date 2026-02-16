@@ -3,6 +3,12 @@ extends EditorPlugin
 
 #-------------------------------------------------------------------------------
 
+<<<<<<< Updated upstream
+=======
+var _perceived_motion_preset_inspector_plugin: GDUT_PerceivedMotionPresetInspectorPlugin
+var _physics_motion_preset_inspector_plugin: GDUT_PhysicsMotionPresetInspectorPlugin
+
+>>>>>>> Stashed changes
 static func _add_setting(
 	key: String,
 	default_value: Variant,
@@ -41,11 +47,31 @@ func _add_custom_types() -> void:
 func _remove_custom_types() -> void:
 	remove_custom_type("MotionPresetBank")
 
+<<<<<<< Updated upstream
 #func _print(message: String, plugin_name: Variant = null) -> void:
 #	if OS.has_feature("editor"):
 #		if plugin_name == null:
 #			plugin_name = _get_plugin_name()
 #		print_rich("🔌 [u]", plugin_name, "[/u]: ", message)
+=======
+func _add_inspector_plugins() -> void:
+	_perceived_motion_preset_inspector_plugin = GDUT_PerceivedMotionPresetInspectorPlugin.new()
+	_physics_motion_preset_inspector_plugin = GDUT_PhysicsMotionPresetInspectorPlugin.new()
+	add_inspector_plugin(_perceived_motion_preset_inspector_plugin)
+	add_inspector_plugin(_physics_motion_preset_inspector_plugin)
+
+func _remove_inspector_plugins() -> void:
+	remove_inspector_plugin(_physics_motion_preset_inspector_plugin)
+	remove_inspector_plugin(_perceived_motion_preset_inspector_plugin)
+	_physics_motion_preset_inspector_plugin = null
+	_perceived_motion_preset_inspector_plugin = null
+
+func _print(message: String, plugin_name: Variant = null) -> void:
+	if OS.has_feature("editor"):
+		if plugin_name == null:
+			plugin_name = _get_plugin_name()
+		print_rich("🔌 [u]", plugin_name, "[/u]: ", message)
+>>>>>>> Stashed changes
 
 func _get_plugin_name() -> String:
 	return "GDUT Motion"
@@ -64,9 +90,17 @@ func _enter_tree() -> void:
 	_add_setting("gdut/motion/debug/user_time_scale_detection_sample_count", 15, PROPERTY_HINT_RANGE, "1,60")
 	_add_setting("gdut/motion/debug/user_time_scale_detection_initial_skip_count", 30, PROPERTY_HINT_RANGE, "1,120")
 	_add_custom_types()
+<<<<<<< Updated upstream
 #	_print("Activated.")
 
 func _exit_tree() -> void:
+=======
+	_add_inspector_plugins()
+	#_print("Activated.")
+
+func _exit_tree() -> void:
+	_remove_inspector_plugins()
+>>>>>>> Stashed changes
 	_remove_custom_types()
 	_remove_setting("gdut/motion/transition_processor/retention_duration")
 	_remove_setting("gdut/motion/debug/suppress_warning_message")

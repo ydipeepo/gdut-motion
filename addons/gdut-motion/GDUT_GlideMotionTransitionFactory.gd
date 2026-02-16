@@ -9,28 +9,40 @@ func get_name() -> StringName:
 
 func set_power(value: float) -> void:
 	if value < GDUT_GlideMotionTransition.MIN_POWER:
+<<<<<<< Updated upstream
 		GDUT_Motion.print_warning(
 			&"BAD_POWER",
 			get_name(),
 			value)
+=======
+		GDUT_Motion.print_warning(&"BAD_POWER", get_name(), value)
+>>>>>>> Stashed changes
 		value = GDUT_GlideMotionTransition.MIN_POWER
 	_power = value
 
 func set_time_constant(value: float) -> void:
 	if value < GDUT_GlideMotionTransition.MIN_TIME_CONSTANT:
+<<<<<<< Updated upstream
 		GDUT_Motion.print_warning(
 			&"BAD_TIME_CONSTANT",
 			get_name(),
 			value)
+=======
+		GDUT_Motion.print_warning(&"BAD_TIME_CONSTANT", get_name(), value)
+>>>>>>> Stashed changes
 		value = GDUT_GlideMotionTransition.MIN_TIME_CONSTANT
 	_time_constant = value
 
 func set_rest_delta(value: float) -> void:
 	if value < GDUT_GlideMotionTransition.MIN_REST_DELTA:
+<<<<<<< Updated upstream
 		GDUT_Motion.print_warning(
 			&"BAD_REST_DELTA",
 			get_name(),
 			value)
+=======
+		GDUT_Motion.print_warning(&"BAD_REST_DELTA", get_name(), value)
+>>>>>>> Stashed changes
 		value = GDUT_GlideMotionTransition.MIN_REST_DELTA
 	_rest_delta = value
 

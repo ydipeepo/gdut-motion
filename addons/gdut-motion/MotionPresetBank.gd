@@ -1,3 +1,19 @@
+<<<<<<< Updated upstream
+=======
+## This node is used to register configuration presets.
+##
+## This node is used to manage animation definitions within the inspector.
+## It can contain multiple animation definitions, separating script-based animation definitions
+## as [MotionPreset] configuration presets.
+## Separated presets can be loaded by name as follows:
+## [codeblock]
+## Motion \
+##     .tween(self, "position:x") \
+##     .preset("preset_name")
+## [/codeblock]
+## By specifying [member MotionPreset.name] in the [method MotionExpression.preset] method,
+## the configuration preset will be applied to the animation expression [MotionExpression].
+>>>>>>> Stashed changes
 @icon("MotionPresetBank.png")
 class_name MotionPresetBank extends Node
 
@@ -5,6 +21,10 @@ class_name MotionPresetBank extends Node
 #	PROPERTIES
 #-------------------------------------------------------------------------------
 
+<<<<<<< Updated upstream
+=======
+## Array to include presets.
+>>>>>>> Stashed changes
 @export
 var presets: Array[MotionPreset]:
 	get:
@@ -18,6 +38,10 @@ var presets: Array[MotionPreset]:
 #	METHODS
 #-------------------------------------------------------------------------------
 
+<<<<<<< Updated upstream
+=======
+# Apply setting presets to the target. (Used internally by the add-on)
+>>>>>>> Stashed changes
 static func apply_preset(
 	preset_name: StringName,
 	target: Object) -> bool:
@@ -27,6 +51,7 @@ static func apply_preset(
 
 	var target_script: Script = target.get_script()
 	var target_script_id := target_script.get_instance_id()
+<<<<<<< Updated upstream
 	if target_script_id not in _presets_by_target_script_id:
 		return false
 
@@ -36,11 +61,22 @@ static func apply_preset(
 
 	var presets: Array[MotionPreset] = presets_by_name[preset_name]
 	var preset := presets.pick_random()
+=======
+	var preset_set: GDUT_MotionPresetSet = _preset_sets_by_target_script_id.get(target_script_id)
+	if preset_set == null:
+		return false
+
+	var preset := preset_set.get_preset(preset_name)
+	if preset == null:
+		return false
+
+>>>>>>> Stashed changes
 	preset.apply(target)
 	return true
 
 #-------------------------------------------------------------------------------
 
+<<<<<<< Updated upstream
 static var _presets_by_target_script_id: Dictionary[int, Dictionary]
 var _presets: Array[MotionPreset]
 
@@ -84,6 +120,26 @@ static func _remove_preset(preset: MotionPreset) -> void:
 		presets_by_name.erase(preset.name)
 	if presets_by_name.is_empty():
 		_presets_by_target_script_id.erase(target_script_id)
+=======
+static var _preset_sets_by_target_script_id: Dictionary[int, GDUT_MotionPresetSet]
+var _presets: Array[MotionPreset]
+
+static func _add_preset(preset: MotionPreset) -> void:
+	if is_instance_valid(preset) and not preset.name.is_empty():
+		var target_script_id := preset.get_target_script_id()
+		var preset_set: GDUT_MotionPresetSet = _preset_sets_by_target_script_id.get(target_script_id)
+		if preset_set == null:
+			preset_set = GDUT_MotionPresetSet.new()
+			_preset_sets_by_target_script_id[target_script_id] = preset_set
+		preset_set.add(preset)
+
+static func _remove_preset(preset: MotionPreset) -> void:
+	if is_instance_valid(preset) and not preset.name.is_empty():
+		var target_script_id := preset.get_target_script_id()
+		var preset_set: GDUT_MotionPresetSet = _preset_sets_by_target_script_id.get(target_script_id)
+		if preset_set != null and preset_set.remove(preset):
+			_preset_sets_by_target_script_id.erase(target_script_id)
+>>>>>>> Stashed changes
 
 func _enter_tree() -> void:
 	for preset: MotionPreset in _presets:

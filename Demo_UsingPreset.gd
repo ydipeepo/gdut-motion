@@ -7,4 +7,7 @@ func _on_button_start_preset_pressed() -> void:
 		.to(Vector2(
 			randf() * (%Panel.size.x - %Icon.size.x),
 			randf() * (%Panel.size.y - %Icon.size.y)))
+<<<<<<< Updated upstream
 	
+=======
+>>>>>>> Stashed changes

@@ -38,7 +38,11 @@ offset_bottom = 136.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("SystemFont_32ob6")
 theme_override_font_sizes/font_size = 12
+<<<<<<< Updated upstream
 text = "You can wait for the transition to complete."
+=======
+text = "You can wait for the animation to complete."
+>>>>>>> Stashed changes
 vertical_alignment = 1
 
 [node name="Button_Tween" type="Button" parent="." unique_id=57654185]
@@ -57,7 +61,11 @@ offset_left = 64.0
 offset_top = 208.0
 offset_right = 640.0
 offset_bottom = 240.0
+<<<<<<< Updated upstream
 text = "Call Motion.bezier"
+=======
+text = "Call Motion.bezier then spring"
+>>>>>>> Stashed changes
 
 [node name="Panel" type="Panel" parent="." unique_id=1440741655]
 unique_name_in_owner = true

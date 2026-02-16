@@ -17,7 +17,33 @@ const DEFAULT_REST_DELTA := 0.01
 #	METHODS
 #-------------------------------------------------------------------------------
 
+<<<<<<< Updated upstream
 func physics_init(state: GDUT_MotionState) -> void:
+=======
+func get_duration_approx(state: GDUT_MotionState) -> float:
+	#var t_max := 0.0
+	#
+	#var stride := state.get_value_size()
+	#for i: int in state.get_array_size():
+	#	var offset := i * stride
+	#	for j: int in stride:
+	#		var k := offset + j
+	#		if not state.get_rest_at(k):
+	#			var p0 := state.get_initial_position_at(k)
+	#			var p1 := state.get_final_position_at(k)
+	#			var v0 := state.get_initial_velocity_at(k)
+	#			var v := v0
+	#			var d := p1 - p0
+	#			if _rest_delta < absf(d):
+	#				var t := _time_constant * log(absf(d) / _rest_delta)
+	#				t_max = maxf(t, t_max)
+	#return t_max
+	return 0.0
+
+func reset(state: GDUT_MotionState) -> void:
+	var rest_delta_sq := _rest_delta * _rest_delta
+
+>>>>>>> Stashed changes
 	var stride := state.get_value_size()
 	for i: int in state.get_array_size():
 		var offset := i * stride
@@ -36,7 +62,11 @@ func physics_init(state: GDUT_MotionState) -> void:
 				p1 = state.get_final_position_at(k)
 			var d := p1 - p0
 			d_sq += d * d
+<<<<<<< Updated upstream
 		if d_sq <= _rest_delta_sq:
+=======
+		if d_sq <= rest_delta_sq:
+>>>>>>> Stashed changes
 			for j: int in stride:
 				var k := offset + j
 				var p1 := state.get_final_position_at(k)
@@ -44,7 +74,11 @@ func physics_init(state: GDUT_MotionState) -> void:
 				var v := 0.0
 				state.set_position_at(k, p)
 				state.set_velocity_at(k, v)
+<<<<<<< Updated upstream
 				state.set_rest_at(k, true)
+=======
+				state.set_rest_at(k)
+>>>>>>> Stashed changes
 		else:
 			for j: int in stride:
 				var k := offset + j
@@ -55,11 +89,21 @@ func physics_init(state: GDUT_MotionState) -> void:
 				var v := d / _time_constant
 				state.set_position_at(k, p)
 				state.set_velocity_at(k, v)
+<<<<<<< Updated upstream
 				state.set_rest_at(k, false)
 
 func physics_next(state: GDUT_MotionState, t: float) -> bool:
 	var exp_neg_t := exp(-t / _time_constant)
 
+=======
+				state.clear_rest_at(k)
+
+func solve(state: GDUT_MotionState, t: float) -> bool:
+	var exp_neg_t := exp(-t / _time_constant)
+
+	var rest_delta_sq := _rest_delta * _rest_delta
+
+>>>>>>> Stashed changes
 	var stride := state.get_value_size()
 	var all_at_rest := true
 	for i: int in state.get_array_size():
@@ -75,7 +119,11 @@ func physics_next(state: GDUT_MotionState, t: float) -> bool:
 			state.set_position_at(k, p)
 			state.set_velocity_at(k, v)
 			d_sq += d * d
+<<<<<<< Updated upstream
 		if d_sq <= _rest_delta_sq:
+=======
+		if d_sq <= rest_delta_sq:
+>>>>>>> Stashed changes
 			for j: int in stride:
 				var k := offset + j
 				var p1 := state.get_final_position_at(k)
@@ -83,7 +131,11 @@ func physics_next(state: GDUT_MotionState, t: float) -> bool:
 				var v := 0.0
 				state.set_position_at(k, p)
 				state.set_velocity_at(k, v)
+<<<<<<< Updated upstream
 				state.set_rest_at(k, true)
+=======
+				state.set_rest_at(k)
+>>>>>>> Stashed changes
 		else:
 			all_at_rest = false
 	return all_at_rest
@@ -92,7 +144,12 @@ func physics_next(state: GDUT_MotionState, t: float) -> bool:
 
 var _power: float
 var _time_constant: float
+<<<<<<< Updated upstream
 var _rest_delta_sq: float
+=======
+#var _rest_delta_sq: float
+var _rest_delta: float
+>>>>>>> Stashed changes
 
 func _init(
 	power: float,
@@ -117,4 +174,9 @@ func _init(
 
 	_power = power
 	_time_constant = time_constant
+<<<<<<< Updated upstream
 	_rest_delta_sq = rest_delta * rest_delta
+=======
+	#_rest_delta_sq = rest_delta * rest_delta
+	_rest_delta = rest_delta
+>>>>>>> Stashed changes

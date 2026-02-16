@@ -9,46 +9,66 @@ func get_name() -> StringName:
 
 func set_stiffness(value: float) -> void:
 	if value < GDUT_SpringMotionTransition.MIN_STIFFNESS:
+<<<<<<< Updated upstream
 		GDUT_Motion.print_warning(
 			&"BAD_STIFFNESS",
 			get_name(),
 			value)
+=======
+		GDUT_Motion.print_warning(&"BAD_STIFFNESS", get_name(), value)
+>>>>>>> Stashed changes
 		value = GDUT_SpringMotionTransition.MIN_STIFFNESS
 	_stiffness = value
 
 func set_damping(value: float) -> void:
 	if value < GDUT_SpringMotionTransition.MIN_DAMPING:
+<<<<<<< Updated upstream
 		GDUT_Motion.print_warning(
 			&"BAD_DAMPING",
 			get_name(),
 			value)
+=======
+		GDUT_Motion.print_warning(&"BAD_DAMPING", get_name(), value)
+>>>>>>> Stashed changes
 		value = GDUT_SpringMotionTransition.MIN_DAMPING
 	_damping = value
 
 func set_mass(value: float) -> void:
 	if value < GDUT_SpringMotionTransition.MIN_MASS:
+<<<<<<< Updated upstream
 		GDUT_Motion.print_warning(
 			&"BAD_MASS",
 			get_name(),
 			value)
+=======
+		GDUT_Motion.print_warning(&"BAD_MASS", get_name(), value)
+>>>>>>> Stashed changes
 		value = GDUT_SpringMotionTransition.MIN_MASS
 	_mass = value
 
 func set_rest_speed(value: float) -> void:
 	if value < GDUT_SpringMotionTransition.MIN_REST_SPEED:
+<<<<<<< Updated upstream
 		GDUT_Motion.print_warning(
 			&"BAD_REST_SPEED",
 			get_name(),
 			value)
+=======
+		GDUT_Motion.print_warning(&"BAD_REST_SPEED", get_name(), value)
+>>>>>>> Stashed changes
 		value = GDUT_SpringMotionTransition.MIN_REST_SPEED
 	_rest_speed = value
 
 func set_rest_delta(value: float) -> void:
 	if value < GDUT_SpringMotionTransition.MIN_REST_DELTA:
+<<<<<<< Updated upstream
 		GDUT_Motion.print_warning(
 			&"BAD_REST_DELTA",
 			get_name(),
 			value)
+=======
+		GDUT_Motion.print_warning(&"BAD_REST_DELTA", get_name(), value)
+>>>>>>> Stashed changes
 		value = GDUT_SpringMotionTransition.MIN_REST_DELTA
 	_rest_delta = value
 

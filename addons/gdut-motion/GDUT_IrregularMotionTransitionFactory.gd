@@ -9,15 +9,20 @@ func get_name() -> StringName:
 
 func set_segments(value: int) -> void:
 	if value < GDUT_IrregularMotionTransition.MIN_SEGMENTS:
+<<<<<<< Updated upstream
 		GDUT_Motion.print_warning(
 			&"BAD_SEGMENTS",
 			get_name(),
 			value)
+=======
+		GDUT_Motion.print_warning(&"BAD_SEGMENTS", get_name(), value)
+>>>>>>> Stashed changes
 		value = GDUT_IrregularMotionTransition.MIN_SEGMENTS
 	_segments = value
 
 func set_intensity(value: float) -> void:
 	if value < GDUT_IrregularMotionTransition.MIN_INTENSITY:
+<<<<<<< Updated upstream
 		GDUT_Motion.print_warning(
 			&"BAD_INTENSITY",
 			get_name(),
@@ -28,6 +33,12 @@ func set_intensity(value: float) -> void:
 			&"BAD_INTENSITY",
 			get_name(),
 			value)
+=======
+		GDUT_Motion.print_warning(&"BAD_INTENSITY", get_name(), value)
+		value = GDUT_IrregularMotionTransition.MIN_INTENSITY
+	elif GDUT_IrregularMotionTransition.MAX_INTENSITY < value:
+		GDUT_Motion.print_warning(&"BAD_INTENSITY", get_name(), value)
+>>>>>>> Stashed changes
 		value = GDUT_IrregularMotionTransition.MAX_INTENSITY
 	_intensity = value
 

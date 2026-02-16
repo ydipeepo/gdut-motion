@@ -1,5 +1,9 @@
 keys,ja,en
+<<<<<<< Updated upstream
 ADDON_NOT_READY,GDUT Task アドオンは有効化されていません。,GDUT Task add-on is not enabled.
+=======
+ADDON_NOT_READY,GDUT Motion アドオンは有効化されていません。,GDUT Motion add-on is not enabled.
+>>>>>>> Stashed changes
 BAD_INIT,不正な INIT を指定しました: {0},Invalid INIT specified: {0}
 BAD_PROCESS,{0} 式に無効な処理フレームを指定しました: {1},Invalid processing frame specified for {0} expression: {1}
 BAD_DELAY,"{0} 式に無効なディレイを指定しました: {1}, 0 秒以上でなければなりません。","Invalid delay specified for {0} expression: {1}, must be 0 seconds or greater."
@@ -26,5 +30,12 @@ BAD_REST_SPEED,"{0} 式に無効な休止速度を指定しました: {1}, 0 よ
 INVALID_PROPERTY_TARGET,不正なプロパティモーションターゲットを指定しました: {0} ({1}),Invalid property motion target specified: {0} ({1})
 INVALID_METHOD_TARGET,不正なメソッドモーションターゲットを指定しました: {0} ({1}),Invalid method motion target specified: {0} ({1})
 INVALID_METHOD_NAME_TARGET,不正なメソッド (名前指定) モーションターゲットを指定しました: {0} ({1}),Invalid method (name-specified) motion target specified: {0} ({1})
+<<<<<<< Updated upstream
 INVALID_PROXY_TARGET,不正なプロキシされたモーションターゲットを指定しました: {0},An invalid proxied motion target was specified: {0}
 PRESET_NOT_FOUND,存在しないプリセット名を指定しました: {0},An invalid preset name was specified: {0}
+=======
+PRESET_NOT_FOUND,存在しないプリセット名を指定しました: {0},An invalid preset name was specified: {0}
+PRESET_PREVIEW_PLAY_CURVE,カーブを再生,Play curve
+PRESET_PREVIEW_VELOCITY,速度,Velocity
+PRESET_PREVIEW_RESET_VELOCITY,速度をリセット,Reset velocity
+>>>>>>> Stashed changes

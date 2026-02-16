@@ -9,6 +9,7 @@ func get_name() -> StringName:
 
 func set_x1(value: float) -> void:
 	if value < GDUT_BezierMotionTransition.MIN_X1:
+<<<<<<< Updated upstream
 		GDUT_Motion.print_warning(
 			&"BAD_X1",
 			get_name(),
@@ -19,11 +20,18 @@ func set_x1(value: float) -> void:
 			&"BAD_X1",
 			get_name(),
 			value)
+=======
+		GDUT_Motion.print_warning(&"BAD_X1", get_name(), value)
+		value = GDUT_BezierMotionTransition.MIN_X1
+	elif GDUT_BezierMotionTransition.MAX_X1 < value:
+		GDUT_Motion.print_warning(&"BAD_X1", get_name(), value)
+>>>>>>> Stashed changes
 		value = GDUT_BezierMotionTransition.MAX_X1
 	_x1 = value
 
 func set_y1(value: float) -> void:
 	if value < GDUT_BezierMotionTransition.MIN_Y1:
+<<<<<<< Updated upstream
 		GDUT_Motion.print_warning(
 			&"BAD_Y1",
 			get_name(),
@@ -34,11 +42,18 @@ func set_y1(value: float) -> void:
 			&"BAD_Y1",
 			get_name(),
 			value)
+=======
+		GDUT_Motion.print_warning(&"BAD_Y1", get_name(), value)
+		value = GDUT_BezierMotionTransition.MIN_Y1
+	elif GDUT_BezierMotionTransition.MAX_Y1 < value:
+		GDUT_Motion.print_warning(&"BAD_Y1", get_name(), value)
+>>>>>>> Stashed changes
 		value = GDUT_BezierMotionTransition.MAX_Y1
 	_y1 = value
 
 func set_x2(value: float) -> void:
 	if value < GDUT_BezierMotionTransition.MIN_X2:
+<<<<<<< Updated upstream
 		GDUT_Motion.print_warning(
 			&"BAD_X2",
 			get_name(),
@@ -49,11 +64,18 @@ func set_x2(value: float) -> void:
 			&"BAD_X2",
 			get_name(),
 			value)
+=======
+		GDUT_Motion.print_warning(&"BAD_X2", get_name(), value)
+		value = GDUT_BezierMotionTransition.MIN_X2
+	elif GDUT_BezierMotionTransition.MAX_X2 < value:
+		GDUT_Motion.print_warning(&"BAD_X2", get_name(), value)
+>>>>>>> Stashed changes
 		value = GDUT_BezierMotionTransition.MAX_X2
 	_x2 = value
 
 func set_y2(value: float) -> void:
 	if value < GDUT_BezierMotionTransition.MIN_Y2:
+<<<<<<< Updated upstream
 		GDUT_Motion.print_warning(
 			&"BAD_Y2",
 			get_name(),
@@ -64,6 +86,12 @@ func set_y2(value: float) -> void:
 			&"BAD_Y2",
 			get_name(),
 			value)
+=======
+		GDUT_Motion.print_warning(&"BAD_Y2", get_name(), value)
+		value = GDUT_BezierMotionTransition.MIN_Y2
+	elif GDUT_BezierMotionTransition.MAX_Y2 < value:
+		GDUT_Motion.print_warning(&"BAD_Y2", get_name(), value)
+>>>>>>> Stashed changes
 		value = GDUT_BezierMotionTransition.MAX_Y2
 	_y2 = value
 

@@ -10,6 +10,7 @@ const DEFAULT_VALUE := Vector2i.ZERO
 #	METHODS
 #-------------------------------------------------------------------------------
 
+<<<<<<< Updated upstream
 @warning_ignore("unused_parameter")
 static func create(array_size: int) -> GDUT_MotionPosition:
 	return new()
@@ -50,6 +51,19 @@ func set_incoming_value(value: Variant) -> void:
 
 func get_outgoing_value() -> Variant:
 	return Vector2i(_value.round())
+=======
+static func can_convert(value: Variant, array_size: int) -> bool:
+	var can_convert: Callable = _vector2i_can_convert_map.get(typeof(value))
+	return can_convert.is_valid() and can_convert.call(value, array_size)
+
+func set_value(value: Variant) -> void:
+	var convert: Callable = _vector2i_convert_map.get(typeof(value))
+	assert(convert.is_valid())
+	_value = convert.call(value)
+
+func get_value() -> Variant:
+	return Vector2i(_value)
+>>>>>>> Stashed changes
 
 func set_value_at(index: int, value: float) -> void:
 	_value[index] = value
@@ -63,6 +77,7 @@ var _value: Vector2
 
 #region converters
 
+<<<<<<< Updated upstream
 @warning_ignore("unused_parameter")
 static func _can_convert_from_int(value: int) -> bool:
 	return true
@@ -81,6 +96,42 @@ static func _can_convert_from_vector2i(value: Vector2i) -> bool:
 
 static func _can_convert_from_array(value: Array) -> bool:
 	if value.size() != 2:
+=======
+static var _vector2i_can_convert_map: Dictionary[int, Callable] = {
+	TYPE_INT: _can_convert_from_int,
+	TYPE_FLOAT: _can_convert_from_float,
+	TYPE_VECTOR2: _can_convert_from_vector2,
+	TYPE_VECTOR2I: _can_convert_from_vector2i,
+	TYPE_ARRAY: _can_convert_from_array,
+}
+
+static var _vector2i_convert_map: Dictionary[int, Callable] = {
+	TYPE_INT: _convert_from_int,
+	TYPE_FLOAT: _convert_from_float,
+	TYPE_VECTOR2: _convert_from_vector2,
+	TYPE_VECTOR2I: _convert_from_vector2i,
+	TYPE_ARRAY: _convert_from_array,
+}
+
+@warning_ignore("unused_parameter")
+static func _can_convert_from_int(value: int, array_size: int) -> bool:
+	return array_size == 1
+
+@warning_ignore("unused_parameter")
+static func _can_convert_from_float(value: float, array_size: int) -> bool:
+	return array_size == 1
+
+@warning_ignore("unused_parameter")
+static func _can_convert_from_vector2(value: Vector2, array_size: int) -> bool:
+	return array_size == 1
+
+@warning_ignore("unused_parameter")
+static func _can_convert_from_vector2i(value: Vector2i, array_size: int) -> bool:
+	return array_size == 1
+
+static func _can_convert_from_array(value: Array, array_size: int) -> bool:
+	if array_size != 1 or value.size() != 2:
+>>>>>>> Stashed changes
 		return false
 	match typeof(value[0]):
 		TYPE_INT, \
@@ -121,3 +172,10 @@ static func _convert_from_array(value: Array) -> Vector2:
 	return converted_value.round()
 
 #endregion
+<<<<<<< Updated upstream
+=======
+
+@warning_ignore("unused_parameter")
+func _init(array_size: int) -> void:
+	pass
+>>>>>>> Stashed changes
