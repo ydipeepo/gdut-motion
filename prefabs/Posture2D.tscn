@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bfrjkr0lkkxue"]
+
+[ext_resource type="Script" uid="uid://csv86ebmfoo4i" path="res://prefabs/Posture2D.gd" id="1_7fpsx"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_0yssa"]
+size = Vector2(60, 60)
+
+[node name="Posture2D" type="ColorRect" unique_id=1239610762]
+clip_children = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_7fpsx")
+
+[node name="ViewportContainer" type="SubViewportContainer" parent="." unique_id=4808596]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="Viewport" type="SubViewport" parent="ViewportContainer" unique_id=1119134656]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+positional_shadow_atlas_size = 0
+positional_shadow_atlas_16_bits = false
+positional_shadow_atlas_quad_0 = 0
+positional_shadow_atlas_quad_1 = 0
+positional_shadow_atlas_quad_2 = 0
+positional_shadow_atlas_quad_3 = 0
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="Camera" type="Camera2D" parent="ViewportContainer/Viewport" unique_id=538037396]
+
+[node name="Cube" type="MeshInstance2D" parent="ViewportContainer/Viewport" unique_id=199819874]
+unique_name_in_owner = true
+mesh = SubResource("QuadMesh_0yssa")
+
+[node name="Handle" type="Line2D" parent="ViewportContainer/Viewport/Cube" unique_id=1527169214]
+points = PackedVector2Array(0, -24, 0, -104)
+width = 2.0

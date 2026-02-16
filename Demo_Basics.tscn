@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://bce8bs51vn4w7"]
+
+[ext_resource type="Script" uid="uid://tdsigeyp30ke" path="res://Demo_Basics.gd" id="1_gsgny"]
+[ext_resource type="Texture2D" uid="uid://bhrjwaf2fsy8k" path="res://assets/texture/icon.png" id="2_qh27q"]
+
+[sub_resource type="SystemFont" id="SystemFont_626re"]
+subpixel_positioning = 0
+
+[node name="Demo_Basics" type="Control" unique_id=835237470]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gsgny")
+
+[node name="Title" type="Label" parent="." unique_id=893669983]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 62.0
+offset_right = 256.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_626re")
+theme_override_font_sizes/font_size = 24
+text = "Basics"
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="." unique_id=923926147]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 0
+offset_left = 64.0
+offset_top = 104.0
+offset_right = 470.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_626re")
+theme_override_font_sizes/font_size = 12
+text = "You can schedule the transition at any time. Spring and Glide motions inherit the instantaneous velocity."
+vertical_alignment = 1
+
+[node name="Button_Spring" type="Button" parent="." unique_id=1973509195]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 168.0
+offset_right = 240.0
+offset_bottom = 200.0
+text = "Call Motion.spring"
+
+[node name="Button_Glide" type="Button" parent="." unique_id=1830940454]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 208.0
+offset_right = 240.0
+offset_bottom = 240.0
+text = "Call Motion.glide"
+
+[node name="Button_Tween" type="Button" parent="." unique_id=57654185]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 168.0
+offset_right = 432.0
+offset_bottom = 200.0
+text = "Call Motion.tween"
+
+[node name="Button_Bezier" type="Button" parent="." unique_id=38406580]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 208.0
+offset_right = 432.0
+offset_bottom = 240.0
+text = "Call Motion.bezier"
+
+[node name="Panel" type="Panel" parent="." unique_id=1440741655]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 0
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 1216.0
+offset_bottom = 656.0
+
+[node name="Icon" type="TextureRect" parent="Panel" unique_id=287255783]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 496.0
+offset_top = 176.0
+offset_right = 528.0
+offset_bottom = 208.0
+texture = ExtResource("2_qh27q")
+
+[connection signal="pressed" from="Button_Spring" to="." method="_on_button_spring_pressed"]
+[connection signal="pressed" from="Button_Glide" to="." method="_on_button_glide_pressed"]
+[connection signal="pressed" from="Button_Tween" to="." method="_on_button_tween_pressed"]
+[connection signal="pressed" from="Button_Bezier" to="." method="_on_button_bezier_pressed"]

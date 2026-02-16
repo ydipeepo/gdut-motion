@@ -1,0 +1,32 @@
+keys,ja,en
+ADDON_NOT_READY,GDUT Motion アドオンは有効化されていません。,GDUT Motion add-on is not enabled.
+BAD_INIT,不正な INIT を指定しました: {0},Invalid INIT specified: {0}
+BAD_PROCESS,{0} 式に無効な処理フレームを指定しました: {1},Invalid processing frame specified for {0} expression: {1}
+BAD_DELAY,"{0} 式に無効なディレイを指定しました: {1}, 0 秒以上でなければなりません。","Invalid delay specified for {0} expression: {1}, must be 0 seconds or greater."
+BAD_DURATION,"{0} 式に無効な期間を指定しました: {1}, 0 秒以上でなければなりません。","Invalid duration specified for {0} expression: {1}, must be 0 seconds or greater."
+BAD_INITIAL_POSITION,"{0} 式に無効な初期位置を指定しました: {1}, ターゲット型に変換できません。","Invalid initial position specified for {0} expression: {1}, cannot convert to target type."
+BAD_FINAL_POSITION,"{0} 式に無効な最終位置を指定しました: {1}, ターゲット型に変換できません。","Invalid final position specified for {0} expression: {1}, cannot convert to target type."
+BAD_INITIAL_VELOCITY,"{0} 式に無効な初期速度を指定しました: {1}, ターゲット型に変換できません。","Invalid initial velocity specified for {0} expression: {1}, cannot convert to target type."
+BAD_X1,"{0} 式に指定した 1 つ目のコントロールポイント X 成分が無効です: {1}, 0 ~ 1 の範囲内でなければなりません。","Invalid first control point X component specified for {0} expression: {1}, must be in the range 0 to 1."
+BAD_Y1,"{0} 式に指定した 1 つ目のコントロールポイント Y 成分が無効です: {1}, -1 ~ 2 の範囲内でなければなりません。","Invalid first control point Y component specified for {0} expression: {1}, must be in the range -1 to 2."
+BAD_X2,"{0} 式に指定した 2 つ目のコントロールポイント X 成分が無効です: {1}, 0 ~ 1 の範囲内でなければなりません。","Invalid second control point X component specified for {0} expression: {1}, must be in the range 0 to 1."
+BAD_Y2,"{0} 式に指定した 2 つ目のコントロールポイント Y 成分が無効です: {1}, -1 ~ 2 の範囲内でなければなりません。","Invalid second control point Y component specified for {0} expression: {1}, must be in the range -1 to 2."
+BAD_SEGMENTS,"{0} 式に無効なセグメント数を指定しました: {1}, 0 以上でなければなりません。","Invalid number of segments specified for {0} expression: {1}, must be 0 or greater."
+BAD_INTENSITY,"{0} 式に無効な強度を指定しました: {1}, 0 ~ 4 の範囲内でなければなりません。","Invalid strength specified for {0} expression: {1}, must be in the range 0 to 4."
+BAD_ROUND,{0} 式に無効な丸めタイプを指定しました: {1},Invalid rounding type specified for {0} expression: {1}
+BAD_EASE,{0} 式に無効なイージングタイプを指定しました: {1},Invalid easing type specified for {0} expression: {1}
+BAD_TRANS,{0} 式に無効な遷移タイプを指定しました: {1},Invalid transition type specified for {0} expression: {1}
+BAD_POWER,"{0} 式に無効な崩壊定数を指定しました: {1}, 0 より大きくなければなりません。","Invalid decay constant specified for {0} expression: {1}, must be greater than 0."
+BAD_TIME_CONSTANT,"{0} 式に無効な時定数を指定しました: {1}, 0 以上でなければなりません。","Invalid time constant specified for {0} expression: {1}, must be 0 or greater."
+BAD_REST_DELTA,"{0} 式に無効な休止デルタを指定しました: {1}, 0 より大きくなければなりません。","Invalid rest delta specified for {0} expression: {1}, must be greater than 0."
+BAD_STIFFNESS,"{0} 式に無効な剛性を指定しました: {1}, 0 より大きくなければなりません。","Invalid stiffness specified for {0} expression: {1}, must be greater than 0."
+BAD_DAMPING,"{0} 式に無効な減衰を指定しました: {1}, 0 以上でなければなりません。","Invalid damping specified for {0} expression: {1}, must be 0 or greater."
+BAD_MASS,"{0} 式に無効な質量を指定しました: {1}, 0 より大きくなければなりません。","Invalid mass specified for {0} expression: {1}, must be greater than 0."
+BAD_REST_SPEED,"{0} 式に無効な休止速度を指定しました: {1}, 0 より大きくなければなりません。","Invalid rest velocity specified for {0} expression: {1}, must be greater than 0."
+INVALID_PROPERTY_TARGET,不正なプロパティモーションターゲットを指定しました: {0} ({1}),Invalid property motion target specified: {0} ({1})
+INVALID_METHOD_TARGET,不正なメソッドモーションターゲットを指定しました: {0} ({1}),Invalid method motion target specified: {0} ({1})
+INVALID_METHOD_NAME_TARGET,不正なメソッド (名前指定) モーションターゲットを指定しました: {0} ({1}),Invalid method (name-specified) motion target specified: {0} ({1})
+PRESET_NOT_FOUND,存在しないプリセット名を指定しました: {0},An invalid preset name was specified: {0}
+PRESET_PREVIEW_PLAY_CURVE,カーブを再生,Play curve
+PRESET_PREVIEW_VELOCITY,速度,Velocity
+PRESET_PREVIEW_RESET_VELOCITY,速度をリセット,Reset velocity

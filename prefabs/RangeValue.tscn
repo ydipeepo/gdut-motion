@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bw7jroyx0l5pi"]
+
+[ext_resource type="Script" uid="uid://ds5tg6vksf4n4" path="res://prefabs/RangeValue.gd" id="1_syn3g"]
+
+[node name="RangeValue" type="HBoxContainer" unique_id=153674069]
+custom_minimum_size = Vector2(0, 18)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+script = ExtResource("1_syn3g")
+
+[node name="Value" type="Label" parent="." unique_id=781429417]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slider" type="HSlider" parent="." unique_id=1017497324]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+step = 0.01
+
+[node name="MinValue" type="Label" parent="." unique_id=975223798]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Separator" type="Label" parent="." unique_id=1690504029]
+layout_mode = 2
+text = "~"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MaxValue" type="Label" parent="." unique_id=1592314376]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="changed" from="Slider" to="." method="_on_slider_changed"]
+[connection signal="value_changed" from="Slider" to="." method="_on_slider_value_changed"]

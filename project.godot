@@ -8,39 +8,46 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
-config/name="XDUT Motion"
-config/description="継続可能なバネや滑走アニメーション、加速度の情報を持った Tween を含む、ノードをアニメーションさせるためのアドオンです。"
-config/tags=PackedStringArray("xdut")
-run/main_scene="uid://d0gbo2nq5m8ep"
-config/features=PackedStringArray("4.5", "GL Compatibility")
-boot_splash/bg_color=Color(0, 0, 0, 1)
+config/name="GDUT Motion"
+config/description="This add-on animates any property or method using easing and continuous physics-based transition."
+config/tags=PackedStringArray("gdut")
+run/main_scene="uid://bmw87skbskdl0"
+config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/bg_color=Color(0.93333334, 0.93333334, 0.93333334, 1)
 boot_splash/show_image=false
-boot_splash/fullsize=false
+boot_splash/stretch_mode=0
 boot_splash/use_filter=false
 config/icon="uid://bhrjwaf2fsy8k"
 
 [autoload]
 
-XDUT_TaskCanonical="*res://addons/xdut-task/XDUT_TaskCanonical.gd"
-XDUT_MotionCanonical="*res://addons/xdut-motion/XDUT_MotionCanonical.gd"
+GDUT_TaskCanonical="*uid://d4ixdr1hdia5t"
+GDUT_MotionCanonical="*uid://p04dph4xrfh3"
 
 [display]
 
 window/size/viewport_width=1280
-window/size/viewport_height=640
+window/size/viewport_height=720
 window/size/resizable=false
+window/size/minimize_disabled=true
+window/size/maximize_disabled=true
 window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/xdut-motion/plugin.cfg", "res://addons/xdut-task/plugin.cfg")
+enabled=PackedStringArray("res://addons/gdut-motion/plugin.cfg", "res://addons/gdut-task/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
-"res://addons/xdut-motion/": "pink",
+"res://addons/gdut-motion/": "pink",
+"res://addons/gdut-task/": "gray",
 "res://addons/xdut-task/": "gray"
 }
 
@@ -51,10 +58,10 @@ import/blender/enabled=false
 
 [physics]
 
-common/physics_ticks_per_second=20
+common/physics_ticks_per_second=15
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+environment/defaults/default_clear_color=Color(0.93333334, 0.93333334, 0.93333334, 1)

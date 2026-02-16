@@ -1,38 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0gbo2nq5m8ep"]
+[gd_scene format=3 uid="uid://bmw87skbskdl0"]
 
-[ext_resource type="Script" uid="uid://l6ftix5fnwue" path="res://Test_Motion.gd" id="1_2ix1q"]
-[ext_resource type="PackedScene" uid="uid://cwbe7v7tlib1v" path="res://prefab/Graph.tscn" id="2_0s3s8"]
-[ext_resource type="Script" uid="uid://naye2ro68422" path="res://addons/xdut-motion/MotionPresetBank.gd" id="4_77sy7"]
-[ext_resource type="Script" uid="uid://eeqlug2adrmh" path="res://addons/xdut-motion/MotionPreset.gd" id="5_o5dhi"]
-[ext_resource type="Script" uid="uid://ltqw677im1ct" path="res://addons/xdut-motion/SpringMotionPreset.gd" id="6_ppv3q"]
+[ext_resource type="Theme" uid="uid://itmgkfdfuwrs" path="res://assets/theme/test.tres" id="1_ks8ny"]
+[ext_resource type="Texture2D" uid="uid://bhrjwaf2fsy8k" path="res://assets/texture/icon.png" id="2_oxsv8"]
+[ext_resource type="Script" uid="uid://boluayyjx73pp" path="res://Test_Motion.gd" id="2_qlwqs"]
+[ext_resource type="PackedScene" uid="uid://dbysni1gt5a3y" path="res://prefabs/Graph2D.tscn" id="4_6hrad"]
+[ext_resource type="PackedScene" uid="uid://bfrjkr0lkkxue" path="res://prefabs/Posture2D.tscn" id="4_21lyc"]
+[ext_resource type="PackedScene" uid="uid://ccsi3oldhplyl" path="res://prefabs/Posture3D.tscn" id="6_76lh4"]
+[ext_resource type="PackedScene" uid="uid://dr8vjsamb0p6n" path="res://prefabs/Transition.tscn" id="6_r2onw"]
+[ext_resource type="PackedScene" uid="uid://bkp18is5skvl3" path="res://prefabs/Graph1D.tscn" id="7_oxsv8"]
 
-[sub_resource type="Resource" id="Resource_dykqv"]
-script = ExtResource("6_ppv3q")
-stiffness = 5.00001
-limit_overshooting = true
-name = "custom"
-delay = 0.3
-process = 1
+[sub_resource type="SystemFont" id="SystemFont_ks8ny"]
 
-[sub_resource type="Environment" id="Environment_ro28l"]
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_energy = 2.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_ipucb"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_t5ke3"]
-top_radius = 0.025
-bottom_radius = 0.025
-radial_segments = 4
-rings = 1
-cap_bottom = false
-
-[sub_resource type="QuadMesh" id="QuadMesh_xu388"]
-size = Vector2(60, 60)
-
-[node name="Test_Motion" type="MarginContainer"]
-auto_translate_mode = 2
+[node name="Test_Motion" type="MarginContainer" unique_id=1691496380]
 texture_filter = 1
 texture_repeat = 1
 anchors_preset = 15
@@ -40,502 +19,144 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-localize_numeral_system = false
+theme = ExtResource("1_ks8ny")
 theme_override_constants/margin_left = 48
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 32
-script = ExtResource("1_2ix1q")
+script = ExtResource("2_qlwqs")
+color_marker_start = Color(0.0841232, 0.23724473, 0.1930371, 1)
+color_marker_end = Color(0.3019608, 0.1254902, 0.25490198, 1)
 
-[node name="MotionPresetBank" type="Node" parent="."]
-script = ExtResource("4_77sy7")
-presets = Array[ExtResource("5_o5dhi")]([SubResource("Resource_dykqv")])
-
-[node name="Container" type="VBoxContainer" parent="."]
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
+[node name="Container" type="VBoxContainer" parent="." unique_id=225815226]
 layout_mode = 2
-localize_numeral_system = false
-theme_override_constants/separation = 0
 
-[node name="Header" type="VBoxContainer" parent="Container"]
+[node name="Header" type="VBoxContainer" parent="Container" unique_id=798060418]
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 0
 
-[node name="Title" type="Label" parent="Container/Header"]
-auto_translate_mode = 2
-custom_minimum_size = Vector2(0, 40)
+[node name="Title" type="HBoxContainer" parent="Container/Header" unique_id=1212137048]
 layout_mode = 2
-localize_numeral_system = false
-theme_override_font_sizes/font_size = 20
-text = "XDUT Motion"
-vertical_alignment = 1
 
-[node name="Description" type="Label" parent="Container/Header"]
-auto_translate_mode = 2
-custom_minimum_size = Vector2(0, 24)
+[node name="Icon" type="TextureRect" parent="Container/Header/Title" unique_id=318547336]
 layout_mode = 2
-localize_numeral_system = false
-theme_override_colors/font_color = Color(0.733333, 0.733333, 0.733333, 1)
-theme_override_font_sizes/font_size = 12
-text = "継続可能なバネや滑走アニメーション、加速度の情報を持った Tween を含む、ノードをアニメーションさせるためのアドオンです。"
-vertical_alignment = 1
+texture = ExtResource("2_oxsv8")
+stretch_mode = 3
 
-[node name="Separator_1" type="HSeparator" parent="Container"]
-auto_translate_mode = 2
-modulate = Color(1, 1, 1, 0.247059)
-texture_filter = 1
-texture_repeat = 1
+[node name="Text" type="Label" parent="Container/Header/Title" unique_id=711380776]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
-localize_numeral_system = false
+theme_override_fonts/font = SubResource("SystemFont_ks8ny")
+theme_override_font_sizes/font_size = 18
+text = "GDUT Motion"
+vertical_alignment = 1
 
-[node name="Content" type="VBoxContainer" parent="Container"]
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
+[node name="Description" type="HBoxContainer" parent="Container/Header" unique_id=89108556]
+layout_mode = 2
+
+[node name="Padding" type="Control" parent="Container/Header/Description" unique_id=1776256930]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="Text" type="Label" parent="Container/Header/Description" unique_id=1029097970]
+layout_mode = 2
+text = "This add-on animates any property or method using easing and continuous physics-based transition."
+
+[node name="Separator_1" type="HSeparator" parent="Container" unique_id=181443007]
+layout_mode = 2
+
+[node name="Content" type="HBoxContainer" parent="Container" unique_id=594054200]
+layout_mode = 2
+
+[node name="Padding" type="Control" parent="Container/Content" unique_id=1814668109]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="Column" type="VBoxContainer" parent="Container/Content" unique_id=1799303029]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 32
+
+[node name="Content_2D" type="HBoxContainer" parent="Container/Content/Column" unique_id=1411612233]
+layout_mode = 2
+
+[node name="Posture2D_Transition" parent="Container/Content/Column/Content_2D" unique_id=1857888207 instance=ExtResource("6_r2onw")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Controller" type="HBoxContainer" parent="Container/Content/Column/Content_2D/Posture2D_Transition" unique_id=1163063595]
 layout_mode = 2
 size_flags_vertical = 3
-localize_numeral_system = false
-theme_override_constants/separation = 4
-metadata/_edit_group_ = true
 
-[node name="Row_Content_3D" type="HBoxContainer" parent="Container/Content"]
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
-layout_mode = 2
-size_flags_vertical = 3
-localize_numeral_system = false
-theme_override_constants/separation = 4
-
-[node name="Control_3D" type="VBoxContainer" parent="Container/Content/Row_Content_3D"]
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
-custom_minimum_size = Vector2(320, 0)
-layout_mode = 2
-localize_numeral_system = false
-theme_override_constants/separation = 4
-
-[node name="Spring_3D" type="HBoxContainer" parent="Container/Content/Row_Content_3D/Control_3D"]
+[node name="Posture2D_Cancel" type="Button" parent="Container/Content/Column/Content_2D/Posture2D_Transition/Controller" unique_id=320521138]
 unique_name_in_owner = true
-layout_mode = 2
-theme_override_constants/separation = 4
-
-[node name="Button" type="Button" parent="Container/Content/Row_Content_3D/Control_3D/Spring_3D"]
-custom_minimum_size = Vector2(128, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 12
-text = "Motion.spring()"
-
-[node name="Preset" type="OptionButton" parent="Container/Content/Row_Content_3D/Control_3D/Spring_3D"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 12
-selected = 0
-item_count = 7
-popup/item_0/text = ".preset(\"standard\")"
-popup/item_0/id = 0
-popup/item_1/text = ".preset(\"gentle\")"
-popup/item_1/id = 1
-popup/item_2/text = ".preset(\"wobbly\")"
-popup/item_2/id = 2
-popup/item_3/text = ".preset(\"stiff\")"
-popup/item_3/id = 3
-popup/item_4/text = ".preset(\"slow\")"
-popup/item_4/id = 4
-popup/item_5/text = ".preset(\"molasses\")"
-popup/item_5/id = 5
-popup/item_6/text = ".preset(\"custom\")"
-popup/item_6/id = 6
+disabled = true
+text = "Cancel"
 
-[node name="Tween_3D" type="HBoxContainer" parent="Container/Content/Row_Content_3D/Control_3D"]
+[node name="Posture2D_Start" type="Button" parent="Container/Content/Column/Content_2D/Posture2D_Transition/Controller" unique_id=2127015898]
 unique_name_in_owner = true
-layout_mode = 2
-theme_override_constants/separation = 4
-
-[node name="Button" type="Button" parent="Container/Content/Row_Content_3D/Control_3D/Tween_3D"]
-custom_minimum_size = Vector2(128, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 12
-text = "Motion.tween()"
-
-[node name="Trans" type="OptionButton" parent="Container/Content/Row_Content_3D/Control_3D/Tween_3D"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 12
-selected = 0
-item_count = 11
-popup/item_0/text = ".linear()"
-popup/item_0/id = 0
-popup/item_1/text = ".quad()"
-popup/item_1/id = 1
-popup/item_2/text = ".cubic()"
-popup/item_2/id = 2
-popup/item_3/text = ".quart()"
-popup/item_3/id = 3
-popup/item_4/text = ".quint()"
-popup/item_4/id = 4
-popup/item_5/text = ".sine()"
-popup/item_5/id = 5
-popup/item_6/text = ".expo()"
-popup/item_6/id = 6
-popup/item_7/text = ".circ()"
-popup/item_7/id = 7
-popup/item_8/text = ".elastic()"
-popup/item_8/id = 8
-popup/item_9/text = ".back()"
-popup/item_9/id = 9
-popup/item_10/text = ".bounce()"
-popup/item_10/id = 10
+text = "Start"
 
-[node name="Ease" type="OptionButton" parent="Container/Content/Row_Content_3D/Control_3D/Tween_3D"]
+[node name="Posture2D" parent="Container/Content/Column/Content_2D" unique_id=1920342791 instance=ExtResource("4_21lyc")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
+
+[node name="Posture2D_Graph" parent="Container/Content/Column/Content_2D" unique_id=1865317291 instance=ExtResource("7_oxsv8")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 12
-selected = 0
-item_count = 4
-popup/item_0/text = ".in_()"
-popup/item_0/id = 0
-popup/item_1/text = ".out()"
-popup/item_1/id = 1
-popup/item_2/text = ".in_out()"
-popup/item_2/id = 2
-popup/item_3/text = ".out_in()"
-popup/item_3/id = 3
+update_interval = 5
+level_color = Color(0.16924527, 0.1692453, 0.16924527, 1)
+level_array = Array[float]([3.142, 1.571, 0.0, -1.571, -3.142])
+max_level = 3.5
+min_level = -3.5
 
-[node name="Glide_3D" type="HBoxContainer" parent="Container/Content/Row_Content_3D/Control_3D"]
+[node name="Content_3D" type="HBoxContainer" parent="Container/Content/Column" unique_id=1252978433]
+layout_mode = 2
+
+[node name="Posture3D_Transition" parent="Container/Content/Column/Content_3D" unique_id=313126498 instance=ExtResource("6_r2onw")]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 4
 
-[node name="Button" type="Button" parent="Container/Content/Row_Content_3D/Control_3D/Glide_3D"]
-custom_minimum_size = Vector2(128, 0)
+[node name="Controller" type="HBoxContainer" parent="Container/Content/Column/Content_3D/Posture3D_Transition" unique_id=367276903]
 layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 12
-text = "Motion.glide()"
 
-[node name="Prefer" type="OptionButton" parent="Container/Content/Row_Content_3D/Control_3D/Glide_3D"]
+[node name="Posture3D_Cancel" type="Button" parent="Container/Content/Column/Content_3D/Posture3D_Transition/Controller" unique_id=1822233050]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 12
-selected = 0
-item_count = 2
-popup/item_0/text = ".prefer_velocity()"
-popup/item_0/id = 0
-popup/item_1/text = ".prefer_position()"
-popup/item_1/id = 1
+disabled = true
+text = "Cancel"
 
-[node name="Cancel_3D" type="HBoxContainer" parent="Container/Content/Row_Content_3D/Control_3D"]
+[node name="Posture3D_Start" type="Button" parent="Container/Content/Column/Content_3D/Posture3D_Transition/Controller" unique_id=2042564500]
 unique_name_in_owner = true
-layout_mode = 2
-theme_override_constants/separation = 4
-
-[node name="Button" type="Button" parent="Container/Content/Row_Content_3D/Control_3D/Cancel_3D"]
-custom_minimum_size = Vector2(128, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 12
-text = "Motion.cancel()"
-
-[node name="Pose" type="Panel" parent="Container/Content/Row_Content_3D"]
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
-clip_contents = true
-custom_minimum_size = Vector2(256, 0)
-layout_mode = 2
-localize_numeral_system = false
-
-[node name="Container" type="SubViewportContainer" parent="Container/Content/Row_Content_3D/Pose"]
-custom_minimum_size = Vector2(256, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch = true
-
-[node name="Viewport" type="SubViewport" parent="Container/Content/Row_Content_3D/Pose/Container"]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(256, 238)
-render_target_update_mode = 4
-
-[node name="Light" type="DirectionalLight3D" parent="Container/Content/Row_Content_3D/Pose/Container/Viewport"]
-transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 8, 8, 8)
-sky_mode = 1
-
-[node name="Camera" type="Camera3D" parent="Container/Content/Row_Content_3D/Pose/Container/Viewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
-environment = SubResource("Environment_ro28l")
-fov = 30.0
-
-[node name="Cube" type="MeshInstance3D" parent="Container/Content/Row_Content_3D/Pose/Container/Viewport"]
-unique_name_in_owner = true
-mesh = SubResource("BoxMesh_ipucb")
-skeleton = NodePath("")
-
-[node name="Bar" type="MeshInstance3D" parent="Container/Content/Row_Content_3D/Pose/Container/Viewport/Cube"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CylinderMesh_t5ke3")
-
-[node name="Graph_3D" parent="Container/Content/Row_Content_3D" instance=ExtResource("2_0s3s8")]
-unique_name_in_owner = true
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
 layout_mode = 2
 size_flags_horizontal = 3
-localize_numeral_system = false
-dimension = 3
-metadata/_edit_lock_ = true
+text = "Start"
 
-[node name="Row_Content_2D" type="HBoxContainer" parent="Container/Content"]
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
-layout_mode = 2
-size_flags_vertical = 3
-localize_numeral_system = false
-theme_override_constants/separation = 4
-
-[node name="Control_2D" type="VBoxContainer" parent="Container/Content/Row_Content_2D"]
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
-custom_minimum_size = Vector2(320, 0)
-layout_mode = 2
-localize_numeral_system = false
-
-[node name="Spring_2D" type="HBoxContainer" parent="Container/Content/Row_Content_2D/Control_2D"]
+[node name="Posture3D" parent="Container/Content/Column/Content_3D" unique_id=1299880624 instance=ExtResource("6_76lh4")]
 unique_name_in_owner = true
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
+custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
-localize_numeral_system = false
 
-[node name="Button" type="Button" parent="Container/Content/Row_Content_2D/Control_2D/Spring_2D"]
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
-custom_minimum_size = Vector2(128, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-localize_numeral_system = false
-theme_override_font_sizes/font_size = 12
-text = "Motion.spring()"
-
-[node name="Preset" type="OptionButton" parent="Container/Content/Row_Content_2D/Control_2D/Spring_2D"]
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
+[node name="Posture3D_Graph" parent="Container/Content/Column/Content_3D" unique_id=1560272811 instance=ExtResource("4_6hrad")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-localize_numeral_system = false
-theme_override_font_sizes/font_size = 12
-selected = 0
-item_count = 7
-popup/item_0/text = ".preset(\"standard\")"
-popup/item_0/id = 0
-popup/item_1/text = ".preset(\"gentle\")"
-popup/item_1/id = 1
-popup/item_2/text = ".preset(\"wobbly\")"
-popup/item_2/id = 2
-popup/item_3/text = ".preset(\"stiff\")"
-popup/item_3/id = 3
-popup/item_4/text = ".preset(\"slow\")"
-popup/item_4/id = 4
-popup/item_5/text = ".preset(\"molasses\")"
-popup/item_5/id = 5
-popup/item_6/text = ".preset(\"custom\")"
-popup/item_6/id = 6
+update_interval = 5
+level_color = Color(0.16862746, 0.16862746, 0.16862746, 1)
+level_array = Array[float]([3.142, 1.571, 0.0, -1.571, -3.142])
+max_level = 3.5
+min_level = -3.5
 
-[node name="Tween_2D" type="HBoxContainer" parent="Container/Content/Row_Content_2D/Control_2D"]
-unique_name_in_owner = true
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
-layout_mode = 2
-localize_numeral_system = false
+[connection signal="pressed" from="Container/Content/Column/Content_2D/Posture2D_Transition/Controller/Posture2D_Cancel" to="." method="_on_posture_2d_cancel_pressed"]
+[connection signal="pressed" from="Container/Content/Column/Content_2D/Posture2D_Transition/Controller/Posture2D_Start" to="." method="_on_posture_2d_start_pressed"]
+[connection signal="pressed" from="Container/Content/Column/Content_3D/Posture3D_Transition/Controller/Posture3D_Cancel" to="." method="_on_posture_3d_cancel_pressed"]
+[connection signal="pressed" from="Container/Content/Column/Content_3D/Posture3D_Transition/Controller/Posture3D_Start" to="." method="_on_posture_3d_start_pressed"]
 
-[node name="Button" type="Button" parent="Container/Content/Row_Content_2D/Control_2D/Tween_2D"]
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
-custom_minimum_size = Vector2(128, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-localize_numeral_system = false
-theme_override_font_sizes/font_size = 12
-text = "Motion.tween()"
-
-[node name="Trans" type="OptionButton" parent="Container/Content/Row_Content_2D/Control_2D/Tween_2D"]
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
-layout_mode = 2
-size_flags_horizontal = 3
-localize_numeral_system = false
-theme_override_font_sizes/font_size = 12
-selected = 0
-item_count = 11
-popup/item_0/text = ".linear()"
-popup/item_0/id = 0
-popup/item_1/text = ".quad()"
-popup/item_1/id = 1
-popup/item_2/text = ".cubic()"
-popup/item_2/id = 2
-popup/item_3/text = ".quart()"
-popup/item_3/id = 3
-popup/item_4/text = ".quint()"
-popup/item_4/id = 4
-popup/item_5/text = ".sine()"
-popup/item_5/id = 5
-popup/item_6/text = ".expo()"
-popup/item_6/id = 6
-popup/item_7/text = ".circ()"
-popup/item_7/id = 7
-popup/item_8/text = ".elastic()"
-popup/item_8/id = 8
-popup/item_9/text = ".back()"
-popup/item_9/id = 9
-popup/item_10/text = ".bounce()"
-popup/item_10/id = 10
-
-[node name="Ease" type="OptionButton" parent="Container/Content/Row_Content_2D/Control_2D/Tween_2D"]
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
-layout_mode = 2
-size_flags_horizontal = 3
-localize_numeral_system = false
-theme_override_font_sizes/font_size = 12
-selected = 0
-item_count = 4
-popup/item_0/text = ".in_()"
-popup/item_0/id = 0
-popup/item_1/text = ".out()"
-popup/item_1/id = 1
-popup/item_2/text = ".in_out()"
-popup/item_2/id = 2
-popup/item_3/text = ".out_in()"
-popup/item_3/id = 3
-
-[node name="Glide_2D" type="HBoxContainer" parent="Container/Content/Row_Content_2D/Control_2D"]
-unique_name_in_owner = true
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
-layout_mode = 2
-localize_numeral_system = false
-
-[node name="Button" type="Button" parent="Container/Content/Row_Content_2D/Control_2D/Glide_2D"]
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
-custom_minimum_size = Vector2(128, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-localize_numeral_system = false
-theme_override_font_sizes/font_size = 12
-text = "Motion.glide()"
-
-[node name="Prefer" type="OptionButton" parent="Container/Content/Row_Content_2D/Control_2D/Glide_2D"]
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
-layout_mode = 2
-size_flags_horizontal = 3
-localize_numeral_system = false
-theme_override_font_sizes/font_size = 12
-selected = 0
-item_count = 2
-popup/item_0/text = ".prefer_velocity()"
-popup/item_0/id = 0
-popup/item_1/text = ".prefer_position()"
-popup/item_1/id = 1
-
-[node name="Cancel_2D" type="HBoxContainer" parent="Container/Content/Row_Content_2D/Control_2D"]
-unique_name_in_owner = true
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
-layout_mode = 2
-localize_numeral_system = false
-theme_override_constants/separation = 4
-
-[node name="Button" type="Button" parent="Container/Content/Row_Content_2D/Control_2D/Cancel_2D"]
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
-custom_minimum_size = Vector2(128, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-localize_numeral_system = false
-theme_override_font_sizes/font_size = 12
-text = "Motion.cancel()"
-
-[node name="Pose" type="Panel" parent="Container/Content/Row_Content_2D"]
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
-clip_contents = true
-custom_minimum_size = Vector2(256, 0)
-layout_mode = 2
-localize_numeral_system = false
-
-[node name="Container" type="SubViewportContainer" parent="Container/Content/Row_Content_2D/Pose"]
-custom_minimum_size = Vector2(256, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch = true
-
-[node name="Viewport" type="SubViewport" parent="Container/Content/Row_Content_2D/Pose/Container"]
-disable_3d = true
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(256, 238)
-render_target_update_mode = 4
-
-[node name="Camera" type="Camera2D" parent="Container/Content/Row_Content_2D/Pose/Container/Viewport"]
-
-[node name="Square" type="MeshInstance2D" parent="Container/Content/Row_Content_2D/Pose/Container/Viewport"]
-unique_name_in_owner = true
-mesh = SubResource("QuadMesh_xu388")
-
-[node name="Bar" type="Line2D" parent="Container/Content/Row_Content_2D/Pose/Container/Viewport/Square"]
-points = PackedVector2Array(0, 0, 0, -128)
-width = 2.0
-
-[node name="Graph_2D" parent="Container/Content/Row_Content_2D" instance=ExtResource("2_0s3s8")]
-unique_name_in_owner = true
-auto_translate_mode = 2
-texture_filter = 1
-texture_repeat = 1
-layout_mode = 2
-size_flags_horizontal = 3
-localize_numeral_system = false
-dimension = 1
-metadata/_edit_lock_ = true
-
-[connection signal="pressed" from="Container/Content/Row_Content_3D/Control_3D/Spring_3D/Button" to="." method="_on_3d_spring_pressed"]
-[connection signal="pressed" from="Container/Content/Row_Content_3D/Control_3D/Tween_3D/Button" to="." method="_on_3d_tween_pressed"]
-[connection signal="pressed" from="Container/Content/Row_Content_3D/Control_3D/Glide_3D/Button" to="." method="_on_3d_glide_pressed"]
-[connection signal="pressed" from="Container/Content/Row_Content_3D/Control_3D/Cancel_3D/Button" to="." method="_on_3d_cancel_pressed"]
-[connection signal="pressed" from="Container/Content/Row_Content_2D/Control_2D/Spring_2D/Button" to="." method="_on_2d_spring_pressed"]
-[connection signal="pressed" from="Container/Content/Row_Content_2D/Control_2D/Tween_2D/Button" to="." method="_on_2d_tween_pressed"]
-[connection signal="pressed" from="Container/Content/Row_Content_2D/Control_2D/Glide_2D/Button" to="." method="_on_2d_glide_pressed"]
-[connection signal="pressed" from="Container/Content/Row_Content_2D/Control_2D/Cancel_2D/Button" to="." method="_on_2d_cancel_pressed"]
+[editable path="Container/Content/Column/Content_2D/Posture2D_Transition"]
+[editable path="Container/Content/Column/Content_3D/Posture3D_Transition"]

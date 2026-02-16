@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://ccsi3oldhplyl"]
+
+[ext_resource type="Script" uid="uid://xbbsnlkk1qal" path="res://prefabs/Posture3D.gd" id="1_uaa0s"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0batd"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0batd"]
+top_radius = 0.04
+bottom_radius = 0.04
+height = 1.5
+radial_segments = 4
+rings = 0
+cap_bottom = false
+
+[node name="Posture3D" type="ColorRect" unique_id=1299880624]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_uaa0s")
+
+[node name="ViewportContainer" type="SubViewportContainer" parent="." unique_id=1155441694]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="Viewport" type="SubViewport" parent="ViewportContainer" unique_id=272515422]
+transparent_bg = true
+handle_input_locally = false
+positional_shadow_atlas_size = 0
+positional_shadow_atlas_16_bits = false
+positional_shadow_atlas_quad_0 = 0
+positional_shadow_atlas_quad_1 = 0
+positional_shadow_atlas_quad_2 = 0
+positional_shadow_atlas_quad_3 = 0
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="Camera" type="Camera3D" parent="ViewportContainer/Viewport" unique_id=1106115985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+projection = 1
+size = 4.5
+
+[node name="Light" type="DirectionalLight3D" parent="ViewportContainer/Viewport/Camera" unique_id=1798318934]
+light_energy = 3.0
+sky_mode = 1
+
+[node name="Cube" type="MeshInstance3D" parent="ViewportContainer/Viewport" unique_id=1710959757]
+unique_name_in_owner = true
+mesh = SubResource("BoxMesh_0batd")
+
+[node name="Handle" type="MeshInstance3D" parent="ViewportContainer/Viewport/Cube" unique_id=669003948]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 1.2)
+mesh = SubResource("CylinderMesh_0batd")
