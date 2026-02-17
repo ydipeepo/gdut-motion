@@ -7,7 +7,7 @@ class_name GDUT_SpringMotionTransition extends GDUT_PhysicsMotionTransition
 const MIN_STIFFNESS := EPSILON
 const DEFAULT_STIFFNESS := 100.0
 
-const MIN_DAMPING := 0.0
+const MIN_DAMPING := 0.001
 const DEFAULT_DAMPING := 10.0
 
 const MIN_MASS := EPSILON
