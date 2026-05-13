@@ -30,12 +30,6 @@ It was created for the following purposes:
 
 ## Usage
 
-When the addon is enabled, the `Motion` class and `MotionPresetBank` node become available.
-
-#### Using `Motion`
-
-This section explains how to use `Motion` from scripts.
-
 There are two types of motion:
 
 - **Physics-based Animation**: An animation where the duration are determined from the initial velocity at the start
@@ -43,7 +37,7 @@ There are two types of motion:
 
 These motions can be started using the `Motion` class.
 
-##### Physics Motion
+##### Physics-based Animation
 
 Type | Method name
 ---|---
@@ -62,7 +56,9 @@ Power | `Motion.power()`
 Random | `Motion.random()`
 Steps | `Motion.steps()`
 
-Each method returns an expression (`MotionExpression`). The expression has multiple self-returning methods, and calling these methods to configure the motion:
+When the addon is enabled, the `Motion` class and `MotionPresetBank` node become available.
+
+Each `Motion` method returns an expression (`MotionExpression`). The expression has multiple self-returning methods, and calling these methods to configure the motion:
 
 ```gdscript
 Motion \
