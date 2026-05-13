@@ -32,12 +32,12 @@ It was created for the following purposes:
 
 There are two types of motion:
 
-- **Physics-based Animation**: An animation where the duration are determined from the initial velocity at the start
+- **Physics-based motion**: An animation where the duration are determined from the initial velocity at the start
 - **Easing**: An animation that interpolates from the start position (or current position) to the end position over a fixed duration
 
 These motions can be started using the `Motion` class.
 
-##### Physics-based Animation
+##### Physics-based motion
 
 Type | Method name
 ---|---
