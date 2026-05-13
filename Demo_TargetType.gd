@@ -37,7 +37,7 @@ func _on_button_animate_method_1_pressed() -> void:
 
 	var w := randf()
 	Motion \
-		.spring(%Icon, "set_scale") \
+		.spring_method_name(%Icon, &"set_scale") \
 		.from(%Icon.scale) \
 		.to([
 			lerpf(0.5, 3.0, w),
@@ -47,8 +47,8 @@ func _on_button_animate_method_1_pressed() -> void:
 	#
 	# If no type annotation is provided, you must supply a type hint as follows:
 	#
-	# Motion.tween(self, "_set_scale", TYPE_VECTOR2)
-	#                                  ^^^^^^^^^^^^
+	# Motion.tween_method_name(self, "_set_scale", TYPE_VECTOR2)
+	#                                              ^^^^^^^^^^^^
 	# ".from" can be omitted, but it is specified to inherit the current value.
 	#
 
@@ -59,9 +59,9 @@ func _on_button_animate_method_2_pressed() -> void:
 
 	@warning_ignore("shadowed_variable_base_class")
 	Motion \
-		.spring(%Icon.set_rotation) \
-		#.spring(
-		#	func (rotation: float) -> void:
+		.spring_method(%Icon.set_rotation) \
+		#.spring_method(
+		#	func (rotation):
 		#		%Icon.rotation_degrees = rotation,
 		#	TYPE_FLOAT) \
 		.from(%Icon.rotation) \
@@ -74,8 +74,8 @@ func _on_button_animate_method_2_pressed() -> void:
 	# If no type annotation is provided,
 	# you must supply a type hint as follows:
 	#
-	# Motion.tween(_set_scale, TYPE_FLOAT)
-	#                          ^^^^^^^^^^
+	# Motion.tween_method(_set_scale, TYPE_FLOAT)
+	#                                 ^^^^^^^^^^
 	# When animating a lambda defined on the spot,
 	# duplicates are not eliminated.
 	# Because different instances cannot be determined to be identical.

@@ -1,31 +1,95 @@
 [gd_scene format=3 uid="uid://c12ey1tffhhh1"]
 
 [ext_resource type="Script" uid="uid://c86dvy2h1e7qe" path="res://Demo_UsingPreset.gd" id="1_ptynk"]
-[ext_resource type="Script" uid="uid://bu14ry6fs0vok" path="res://addons/gdut-motion/MotionPresetBank.gd" id="1_tgo45"]
-[ext_resource type="Script" uid="uid://ck83tpyai4aj6" path="res://addons/gdut-motion/MotionPreset.gd" id="2_uhpci"]
-[ext_resource type="Script" uid="uid://ba473dvpurlt5" path="res://addons/gdut-motion/TweenMotionPreset.gd" id="3_ptynk"]
+[ext_resource type="Script" uid="uid://bu14ry6fs0vok" path="res://addons/godot-motion/MotionPresetBank.gd" id="1_tgo45"]
+[ext_resource type="Script" uid="uid://ck83tpyai4aj6" path="res://addons/godot-motion/MotionPreset.gd" id="3_ptynk"]
+[ext_resource type="Script" uid="uid://c4uh1dlfifdop" path="res://addons/godot-motion/SpringMotionPreset.gd" id="3_uhpci"]
 [ext_resource type="Texture2D" uid="uid://bhrjwaf2fsy8k" path="res://assets/texture/icon.png" id="4_bv6dh"]
+[ext_resource type="Script" uid="uid://cso7r5e6p4x5k" path="res://addons/godot-easing/TweenEasing.gd" id="4_i84fs"]
+[ext_resource type="Script" uid="uid://dimhx7v82nam6" path="res://addons/godot-motion/EasingMotionPreset.gd" id="5_bvqxt"]
+[ext_resource type="Script" uid="uid://mq65gp320g5c" path="res://addons/godot-easing/RandomEasing.gd" id="6_ruh5a"]
+[ext_resource type="Script" uid="uid://b6eifcd045hch" path="res://addons/godot-easing/StepsEasing.gd" id="7_bvqxt"]
+[ext_resource type="Script" uid="uid://bfo6xpc4dbb7k" path="res://addons/godot-easing/ElasticEasing.gd" id="7_xocqe"]
+[ext_resource type="Script" uid="uid://b202b8kno8e0f" path="res://addons/godot-easing/CrossfadeEasing.gd" id="9_61hau"]
+[ext_resource type="Script" uid="uid://dq0mu7i0v21pq" path="res://addons/godot-easing/LinearEasing.gd" id="10_2u44u"]
 
-[sub_resource type="Resource" id="Resource_bv6dh"]
-script = ExtResource("3_ptynk")
+[sub_resource type="Resource" id="Resource_xocqe"]
+script = ExtResource("4_i84fs")
+trans = 4
+ease = 0
+metadata/_custom_type_script = "uid://cso7r5e6p4x5k"
+
+[sub_resource type="Resource" id="Resource_v8jsq"]
+script = ExtResource("5_bvqxt")
+duration = 0.333
+loop = 2
+easing = SubResource("Resource_xocqe")
+preset_name = &"random"
+metadata/_custom_type_script = "uid://dimhx7v82nam6"
+
+[sub_resource type="Resource" id="Resource_x27bi"]
+script = ExtResource("4_i84fs")
 trans = 9
-ease = 1
-name = &"random"
-metadata/_custom_type_script = "uid://ba473dvpurlt5"
+ease = 0
+metadata/_custom_type_script = "uid://cso7r5e6p4x5k"
 
-[sub_resource type="Resource" id="Resource_treo8"]
-script = ExtResource("3_ptynk")
-trans = 3
-ease = 1
-name = &"random"
-metadata/_custom_type_script = "uid://ba473dvpurlt5"
+[sub_resource type="Resource" id="Resource_hegjo"]
+script = ExtResource("5_bvqxt")
+easing = SubResource("Resource_x27bi")
+preset_name = &"random"
+metadata/_custom_type_script = "uid://dimhx7v82nam6"
 
-[sub_resource type="Resource" id="Resource_ptynk"]
-script = ExtResource("3_ptynk")
-trans = 6
-ease = 1
-name = &"random"
-metadata/_custom_type_script = "uid://ba473dvpurlt5"
+[sub_resource type="Resource" id="Resource_61hau"]
+script = ExtResource("7_bvqxt")
+round = 1
+metadata/_custom_type_script = "uid://b6eifcd045hch"
+
+[sub_resource type="Resource" id="Resource_2u44u"]
+script = ExtResource("5_bvqxt")
+duration = 0.333
+loop = 2
+easing = SubResource("Resource_61hau")
+preset_name = &"random"
+metadata/_custom_type_script = "uid://dimhx7v82nam6"
+
+[sub_resource type="Resource" id="Resource_bnrd0"]
+script = ExtResource("7_xocqe")
+period = 0.21
+ease = 0
+metadata/_custom_type_script = "uid://bfo6xpc4dbb7k"
+
+[sub_resource type="Resource" id="Resource_48qop"]
+script = ExtResource("6_ruh5a")
+segments = 5
+intensity = 4.0
+metadata/_custom_type_script = "uid://mq65gp320g5c"
+
+[sub_resource type="Resource" id="Resource_ppior"]
+script = ExtResource("10_2u44u")
+metadata/_custom_type_script = "uid://dq0mu7i0v21pq"
+
+[sub_resource type="Resource" id="Resource_b3u4b"]
+script = ExtResource("9_61hau")
+easing1 = SubResource("Resource_bnrd0")
+easing2 = SubResource("Resource_48qop")
+weight_easing = SubResource("Resource_ppior")
+metadata/_custom_type_script = "uid://b202b8kno8e0f"
+
+[sub_resource type="Resource" id="Resource_i84fs"]
+script = ExtResource("5_bvqxt")
+loop = 2
+easing = SubResource("Resource_b3u4b")
+preset_name = &"random"
+metadata/_custom_type_script = "uid://dimhx7v82nam6"
+
+[sub_resource type="Resource" id="Resource_11t53"]
+script = ExtResource("5_bvqxt")
+metadata/_custom_type_script = "uid://dimhx7v82nam6"
+
+[sub_resource type="Resource" id="Resource_ri700"]
+script = ExtResource("3_uhpci")
+preset_name = &"random"
+metadata/_custom_type_script = "uid://c4uh1dlfifdop"
 
 [sub_resource type="SystemFont" id="SystemFont_7cmm4"]
 subpixel_positioning = 0
@@ -41,7 +105,7 @@ script = ExtResource("1_ptynk")
 
 [node name="MotionPresetBank" type="Node" parent="." unique_id=1982129128]
 script = ExtResource("1_tgo45")
-presets = Array[ExtResource("2_uhpci")]([SubResource("Resource_bv6dh"), SubResource("Resource_treo8"), SubResource("Resource_ptynk")])
+presets = Array[ExtResource("3_ptynk")]([SubResource("Resource_v8jsq"), SubResource("Resource_hegjo"), SubResource("Resource_2u44u"), SubResource("Resource_i84fs"), SubResource("Resource_11t53"), SubResource("Resource_ri700")])
 metadata/_custom_type_script = "uid://bu14ry6fs0vok"
 
 [node name="Title" type="Label" parent="." unique_id=436243224]
@@ -70,14 +134,21 @@ theme_override_font_sizes/font_size = 12
 text = "You can standardize transition settings as a common preset."
 vertical_alignment = 1
 
-[node name="Button_StartPreset" type="Button" parent="." unique_id=1300444426]
-unique_name_in_owner = true
+[node name="Button_StartTweenPreset" type="Button" parent="." unique_id=1300444426]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 208.0
-offset_right = 256.0
+offset_right = 320.0
 offset_bottom = 240.0
-text = "Start \"random\" preset"
+text = "Start \"random\" tween preset"
+
+[node name="Button_StartEasingPreset" type="Button" parent="." unique_id=777410777]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 208.0
+offset_right = 584.0
+offset_bottom = 240.0
+text = "Start \"random\" easing preset"
 
 [node name="Panel" type="Panel" parent="." unique_id=1196776491]
 unique_name_in_owner = true
@@ -97,4 +168,5 @@ offset_right = 528.0
 offset_bottom = 208.0
 texture = ExtResource("4_bv6dh")
 
-[connection signal="pressed" from="Button_StartPreset" to="." method="_on_button_start_preset_pressed"]
+[connection signal="pressed" from="Button_StartTweenPreset" to="." method="_on_button_start_tween_preset_pressed"]
+[connection signal="pressed" from="Button_StartEasingPreset" to="." method="_on_button_start_easing_preset_pressed"]

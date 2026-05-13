@@ -82,6 +82,7 @@ layout_mode = 2
 [node name="Posture2D_Transition" parent="Container/Content/Column/Content_2D" unique_id=1857888207 instance=ExtResource("6_r2onw")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 0
 
 [node name="Controller" type="HBoxContainer" parent="Container/Content/Column/Content_2D/Posture2D_Transition" unique_id=1163063595]
 layout_mode = 2
@@ -121,6 +122,7 @@ layout_mode = 2
 [node name="Posture3D_Transition" parent="Container/Content/Column/Content_3D" unique_id=313126498 instance=ExtResource("6_r2onw")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 0
 
 [node name="Controller" type="HBoxContainer" parent="Container/Content/Column/Content_3D/Posture3D_Transition" unique_id=367276903]
 layout_mode = 2

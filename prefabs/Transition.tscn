@@ -5,11 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bw7jroyx0l5pi" path="res://prefabs/RangeValue.tscn" id="2_gkwsl"]
 
 [node name="Transition" type="VBoxContainer" unique_id=1857888207]
-custom_minimum_size = Vector2(288, 0)
-offset_right = 206.0
-offset_bottom = 234.0
-grow_horizontal = 2
-grow_vertical = 2
+custom_minimum_size = Vector2(272, 0)
+offset_right = 288.0
+offset_bottom = 210.0
 theme = ExtResource("1_gkwsl")
 script = ExtResource("1_3mf5h")
 
@@ -22,9 +20,9 @@ tab_0/title = "Tween"
 tab_1/title = "Bezier"
 tab_2/title = "Linear"
 tab_3/title = "Steps"
-tab_4/title = "Irregular"
+tab_4/title = "Random"
 tab_5/title = "Spring"
-tab_6/title = "Glide"
+tab_6/title = "Decay"
 
 [node name="Tab_Tween" type="TabBar" parent="TabContainer" unique_id=1342681873]
 layout_mode = 2
@@ -379,13 +377,13 @@ max_value = 10.0
 value = 1.0
 exponent = 1
 
-[node name="Tab_Irregular" type="TabBar" parent="TabContainer" unique_id=710279384]
+[node name="Tab_Random" type="TabBar" parent="TabContainer" unique_id=710279384]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 4
-metadata/_tab_name = "Irregular"
+metadata/_tab_name = "Random"
 
-[node name="Margin" type="MarginContainer" parent="TabContainer/Tab_Irregular" unique_id=879547560]
+[node name="Margin" type="MarginContainer" parent="TabContainer/Tab_Random" unique_id=879547560]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -397,41 +395,41 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Irregular" type="VBoxContainer" parent="TabContainer/Tab_Irregular/Margin" unique_id=575451195]
+[node name="Random" type="VBoxContainer" parent="TabContainer/Tab_Random/Margin" unique_id=575451195]
 layout_mode = 2
 theme_override_constants/separation = 4
 metadata/_edit_group_ = true
 
-[node name="Segments" type="HBoxContainer" parent="TabContainer/Tab_Irregular/Margin/Irregular" unique_id=1602841230]
+[node name="Segments" type="HBoxContainer" parent="TabContainer/Tab_Random/Margin/Random" unique_id=1602841230]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="TabContainer/Tab_Irregular/Margin/Irregular/Segments" unique_id=1475081784]
+[node name="Label" type="Label" parent="TabContainer/Tab_Random/Margin/Random/Segments" unique_id=1475081784]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 text = "Segments:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Irregular_Segments" parent="TabContainer/Tab_Irregular/Margin/Irregular/Segments" unique_id=152034563 instance=ExtResource("2_gkwsl")]
+[node name="Random_Segments" parent="TabContainer/Tab_Random/Margin/Random/Segments" unique_id=152034563 instance=ExtResource("2_gkwsl")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 1.0
 value = 10.0
 
-[node name="Intensity" type="HBoxContainer" parent="TabContainer/Tab_Irregular/Margin/Irregular" unique_id=411801968]
+[node name="Intensity" type="HBoxContainer" parent="TabContainer/Tab_Random/Margin/Random" unique_id=411801968]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="TabContainer/Tab_Irregular/Margin/Irregular/Intensity" unique_id=329734789]
+[node name="Label" type="Label" parent="TabContainer/Tab_Random/Margin/Random/Intensity" unique_id=329734789]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 text = "Intensity:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Irregular_Intensity" parent="TabContainer/Tab_Irregular/Margin/Irregular/Intensity" unique_id=1904888778 instance=ExtResource("2_gkwsl")]
+[node name="Random_Intensity" parent="TabContainer/Tab_Random/Margin/Random/Intensity" unique_id=1904888778 instance=ExtResource("2_gkwsl")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -439,18 +437,18 @@ max_value = 4.0
 value = 0.5
 exponent = 2
 
-[node name="Duration" type="HBoxContainer" parent="TabContainer/Tab_Irregular/Margin/Irregular" unique_id=1408580211]
+[node name="Duration" type="HBoxContainer" parent="TabContainer/Tab_Random/Margin/Random" unique_id=1408580211]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="TabContainer/Tab_Irregular/Margin/Irregular/Duration" unique_id=629243006]
+[node name="Label" type="Label" parent="TabContainer/Tab_Random/Margin/Random/Duration" unique_id=629243006]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 text = "Duration:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Irregular_Duration" parent="TabContainer/Tab_Irregular/Margin/Irregular/Duration" unique_id=1870125738 instance=ExtResource("2_gkwsl")]
+[node name="Random_Duration" parent="TabContainer/Tab_Random/Margin/Random/Duration" unique_id=1870125738 instance=ExtResource("2_gkwsl")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -537,38 +535,18 @@ min_value = 0.1
 value = 1.0
 exponent = 1
 
-[node name="RestSpeed" type="HBoxContainer" parent="TabContainer/Tab_Spring/Margin/Spring" unique_id=796117963]
+[node name="RestEnergy" type="HBoxContainer" parent="TabContainer/Tab_Spring/Margin/Spring" unique_id=796117963]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="TabContainer/Tab_Spring/Margin/Spring/RestSpeed" unique_id=1865039241]
+[node name="Label" type="Label" parent="TabContainer/Tab_Spring/Margin/Spring/RestEnergy" unique_id=1865039241]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
-text = "Rest Spd.:"
+text = "Rest Engy.:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Spring_RestSpeed" parent="TabContainer/Tab_Spring/Margin/Spring/RestSpeed" unique_id=1746728141 instance=ExtResource("2_gkwsl")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 0.01
-max_value = 5.0
-value = 0.01
-exponent = 2
-
-[node name="RestDelta" type="HBoxContainer" parent="TabContainer/Tab_Spring/Margin/Spring" unique_id=1000092531]
-layout_mode = 2
-theme_override_constants/separation = 4
-
-[node name="Label" type="Label" parent="TabContainer/Tab_Spring/Margin/Spring/RestDelta" unique_id=560187810]
-custom_minimum_size = Vector2(64, 0)
-layout_mode = 2
-text = "Rest Dlt.:"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Spring_RestDelta" parent="TabContainer/Tab_Spring/Margin/Spring/RestDelta" unique_id=1851070044 instance=ExtResource("2_gkwsl")]
+[node name="Spring_RestEnergy" parent="TabContainer/Tab_Spring/Margin/Spring/RestEnergy" unique_id=1746728141 instance=ExtResource("2_gkwsl")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -606,13 +584,13 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Lmt."
 
-[node name="Tab_Glide" type="TabBar" parent="TabContainer" unique_id=2003008345]
+[node name="Tab_Decay" type="TabBar" parent="TabContainer" unique_id=2003008345]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 6
-metadata/_tab_name = "Glide"
+metadata/_tab_name = "Decay"
 
-[node name="Margin" type="MarginContainer" parent="TabContainer/Tab_Glide" unique_id=1379660746]
+[node name="Margin" type="MarginContainer" parent="TabContainer/Tab_Decay" unique_id=1379660746]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -624,23 +602,23 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Glide" type="VBoxContainer" parent="TabContainer/Tab_Glide/Margin" unique_id=222235273]
+[node name="Inertia" type="VBoxContainer" parent="TabContainer/Tab_Decay/Margin" unique_id=222235273]
 layout_mode = 2
 theme_override_constants/separation = 4
 metadata/_edit_group_ = true
 
-[node name="Power" type="HBoxContainer" parent="TabContainer/Tab_Glide/Margin/Glide" unique_id=1090516612]
+[node name="Power" type="HBoxContainer" parent="TabContainer/Tab_Decay/Margin/Inertia" unique_id=1090516612]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="TabContainer/Tab_Glide/Margin/Glide/Power" unique_id=335316826]
+[node name="Label" type="Label" parent="TabContainer/Tab_Decay/Margin/Inertia/Power" unique_id=335316826]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 text = "Power:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Glide_Power" parent="TabContainer/Tab_Glide/Margin/Glide/Power" unique_id=1697365910 instance=ExtResource("2_gkwsl")]
+[node name="Decay_Power" parent="TabContainer/Tab_Decay/Margin/Inertia/Power" unique_id=1697365910 instance=ExtResource("2_gkwsl")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -649,18 +627,18 @@ max_value = 5.0
 value = 0.8
 exponent = 2
 
-[node name="TimeConstant" type="HBoxContainer" parent="TabContainer/Tab_Glide/Margin/Glide" unique_id=252575904]
+[node name="TimeConstant" type="HBoxContainer" parent="TabContainer/Tab_Decay/Margin/Inertia" unique_id=252575904]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="TabContainer/Tab_Glide/Margin/Glide/TimeConstant" unique_id=1736613822]
+[node name="Label" type="Label" parent="TabContainer/Tab_Decay/Margin/Inertia/TimeConstant" unique_id=1736613822]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 text = "T Const,:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Glide_TimeConstant" parent="TabContainer/Tab_Glide/Margin/Glide/TimeConstant" unique_id=795786925 instance=ExtResource("2_gkwsl")]
+[node name="Decay_TimeConstant" parent="TabContainer/Tab_Decay/Margin/Inertia/TimeConstant" unique_id=795786925 instance=ExtResource("2_gkwsl")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -668,18 +646,18 @@ max_value = 5.0
 value = 0.35
 exponent = 2
 
-[node name="RestDelta" type="HBoxContainer" parent="TabContainer/Tab_Glide/Margin/Glide" unique_id=2126836071]
+[node name="RestDelta" type="HBoxContainer" parent="TabContainer/Tab_Decay/Margin/Inertia" unique_id=2126836071]
 layout_mode = 2
 theme_override_constants/separation = 4
 
-[node name="Label" type="Label" parent="TabContainer/Tab_Glide/Margin/Glide/RestDelta" unique_id=671116783]
+[node name="Label" type="Label" parent="TabContainer/Tab_Decay/Margin/Inertia/RestDelta" unique_id=671116783]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 text = "Rest Dlt.:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Glide_RestDelta" parent="TabContainer/Tab_Glide/Margin/Glide/RestDelta" unique_id=1088101324 instance=ExtResource("2_gkwsl")]
+[node name="Decay_RestDelta" parent="TabContainer/Tab_Decay/Margin/Inertia/RestDelta" unique_id=1088101324 instance=ExtResource("2_gkwsl")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -726,6 +704,7 @@ popup/item_1/text = "Physics"
 popup/item_1/id = 1
 
 [node name="Delay" type="HBoxContainer" parent="PanelContainer/Margin/Transition" unique_id=296432639]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 4
 

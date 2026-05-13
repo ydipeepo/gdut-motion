@@ -16,8 +16,7 @@ func create(target: Object, target_property_path: NodePath) -> MotionExpression:
 				.ease(%Tween_Ease.selected) \
 				.trans(%Tween_Trans.selected) \
 				.duration(%Tween_Duration.value) \
-				.process(%Transition_Process.selected) \
-				.delay(%Transition_Delay.value)
+				.process(%Transition_Process.selected)
 		1:
 			#
 			# Bezier
@@ -29,8 +28,7 @@ func create(target: Object, target_property_path: NodePath) -> MotionExpression:
 				.x2(%Bezier_X2.value) \
 				.y2(%Bezier_Y2.value) \
 				.duration(%Bezier_Duration.value) \
-				.process(%Transition_Process.selected) \
-				.delay(%Transition_Delay.value)
+				.process(%Transition_Process.selected)
 		2:
 			#
 			# Linear
@@ -38,8 +36,7 @@ func create(target: Object, target_property_path: NodePath) -> MotionExpression:
 			expression = Motion \
 				.linear(target, target_property_path) \
 				.duration(%Linear_Duration.value) \
-				.process(%Transition_Process.selected) \
-				.delay(%Transition_Delay.value)
+				.process(%Transition_Process.selected)
 		3:
 			#
 			# Steps
@@ -49,19 +46,17 @@ func create(target: Object, target_property_path: NodePath) -> MotionExpression:
 				.round(%Steps_Round.selected) \
 				.segments(%Steps_Segments.value) \
 				.duration(%Steps_Duration.value) \
-				.process(%Transition_Process.selected) \
-				.delay(%Transition_Delay.value)
+				.process(%Transition_Process.selected)
 		4:
 			#
-			# Irregular
+			# Random
 			#
 			expression = Motion \
-				.irregular(target, target_property_path) \
-				.segments(%Irregular_Segments.value) \
-				.intensity(%Irregular_Intensity.value) \
-				.duration(%Irregular_Duration.value) \
-				.process(%Transition_Process.selected) \
-				.delay(%Transition_Delay.value)
+				.random(target, target_property_path) \
+				.segments(%Random_Segments.value) \
+				.intensity(%Random_Intensity.value) \
+				.duration(%Random_Duration.value) \
+				.process(%Transition_Process.selected)
 		5:
 			#
 			# Spring
@@ -71,21 +66,18 @@ func create(target: Object, target_property_path: NodePath) -> MotionExpression:
 				.stiffness(%Spring_Stiffness.value) \
 				.damping(%Spring_Damping.value) \
 				.mass(%Spring_Mass.value) \
-				.rest_speed(%Spring_RestSpeed.value) \
-				.rest_delta(%Spring_RestDelta.value) \
+				.rest_energy(%Spring_RestEnergy.value) \
 				.limit_overdamping(%Spring_Overdamping.button_pressed) \
 				.limit_overshooting(%Spring_Overshooting.button_pressed) \
-				.process(%Transition_Process.selected) \
-				.delay(%Transition_Delay.value)
+				.process(%Transition_Process.selected)
 		6:
 			#
-			# Glide
+			# Decay
 			#
 			expression = Motion \
-				.glide(target, target_property_path) \
-				.power(%Glide_Power.value) \
-				.time_constant(%Glide_TimeConstant.value) \
-				.rest_delta(%Glide_RestDelta.value) \
-				.process(%Transition_Process.selected) \
-				.delay(%Transition_Delay.value)
+				.decay(target, target_property_path) \
+				.power(%Decay_Power.value) \
+				.time_constant(%Decay_TimeConstant.value) \
+				.rest_delta(%Decay_RestDelta.value) \
+				.process(%Transition_Process.selected)
 	return expression

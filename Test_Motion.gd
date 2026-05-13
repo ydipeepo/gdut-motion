@@ -21,7 +21,7 @@ func _on_posture_2d_start_pressed() -> void:
 	%Posture2D_Cancel.disabled = false
 	%Posture2D_Graph.add_marker(color_marker_start)
 	_posture_2d_expression = %Posture2D_Transition.create(%Posture2D, ^"angle")
-	if _posture_2d_expression is not GlideMotionExpression:
+	if _posture_2d_expression is not DecayMotionExpression:
 		_posture_2d_expression = _posture_2d_expression.to(randf_range(-PI, PI))
 	await _posture_2d_expression.wait()
 	%Posture2D_Graph.add_marker(color_marker_end)
@@ -37,7 +37,7 @@ func _on_posture_3d_start_pressed() -> void:
 	%Posture3D_Cancel.disabled = false
 	%Posture3D_Graph.add_marker(color_marker_start)
 	_posture_3d_expression = %Posture3D_Transition.create(%Posture3D, ^"angle")
-	if _posture_3d_expression is not GlideMotionExpression:
+	if _posture_3d_expression is not DecayMotionExpression:
 		_posture_3d_expression = _posture_3d_expression.to(Vector2(randf_range(-PI, PI), randf_range(-PI, PI)))
 	await _posture_3d_expression.wait()
 	%Posture3D_Graph.add_marker(color_marker_end)

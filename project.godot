@@ -14,9 +14,8 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="GDUT Motion"
-config/description="This add-on animates any property or method using easing and continuous physics-based transition."
-config/tags=PackedStringArray("gdut")
+config/name="Godot Motion"
+config/tags=PackedStringArray("addon")
 run/main_scene="uid://bmw87skbskdl0"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/bg_color=Color(0.93333334, 0.93333334, 0.93333334, 1)
@@ -27,8 +26,10 @@ config/icon="uid://bhrjwaf2fsy8k"
 
 [autoload]
 
-GDUT_TaskCanonical="*uid://d4ixdr1hdia5t"
-GDUT_MotionCanonical="*uid://p04dph4xrfh3"
+_EasingAutoload="*uid://cne0jqtfukl76"
+_MotionAutoload="*uid://p04dph4xrfh3"
+_TaskAutoload="*uid://d4ixdr1hdia5t"
+_EaseAutoload="*uid://cne0jqtfukl76"
 
 [display]
 
@@ -41,13 +42,18 @@ window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gdut-motion/plugin.cfg", "res://addons/gdut-task/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot-easing/plugin.cfg", "res://addons/godot-motion/plugin.cfg", "res://addons/godot-task/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
+"res://addons/gdut-easing/": "gray",
 "res://addons/gdut-motion/": "pink",
 "res://addons/gdut-task/": "gray",
+"res://addons/godot-ease/": "gray",
+"res://addons/godot-easing/": "gray",
+"res://addons/godot-motion/": "pink",
+"res://addons/godot-task/": "gray",
 "res://addons/xdut-task/": "gray"
 }
 
@@ -55,6 +61,22 @@ folder_colors={
 
 import/fbx2gltf/enabled=false
 import/blender/enabled=false
+
+[godot_easing]
+
+debug/suppress_warning_message=true
+debug/suppress_error_message=true
+
+[godot_motion]
+
+debug/suppress_warning_message=true
+debug/suppress_error_message=true
+
+[godot_task]
+
+debug/suppress_error_message=true
+debug/enable_strict_method_validation=true
+debug/enable_strict_signal_validation=true
 
 [physics]
 

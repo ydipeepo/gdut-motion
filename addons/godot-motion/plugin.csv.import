@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b7pvu82gtvy6r"
+
+[deps]
+
+files=["res://addons/godot-motion/plugin.ja.translation", "res://addons/godot-motion/plugin.en.translation"]
+
+source_file="res://addons/godot-motion/plugin.csv"
+dest_files=["res://addons/godot-motion/plugin.ja.translation", "res://addons/godot-motion/plugin.en.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

@@ -1,0 +1,33 @@
+keys,ja,en
+ADDON_NOT_READY,Godot Motion アドオンは有効化されていません。,Godot Motion add-on is not enabled.
+BAD_PROCESS,{0} 式に無効な処理フレームを指定しました: {1},{0} expression has an invalid process frame specified: {1}
+BAD_DURATION,{0} 式に無効な範囲の期間を指定しました: {1} ({2} 以上である必要があります),{0} expression has an invalid duration: {1} (must be greater than or equal to {2})
+BAD_DELAY,{0} 式に無効な範囲のディレイを指定しました: {1} ({2} 以上である必要があります),{0} expression has an invalid delay: {1} (must be greater than or equal to {2})
+BAD_LOOP,{0} 式に無効な範囲のループ回数を指定しました: {1} ({2} 以上である必要があります),{0} expression has an invalid loop count: {1} (must be greater than or equal to {2})
+BAD_LOOP_DELAY,{0} 式に無効なループディレイを指定しました: {1} ({2} 以上である必要があります),{0} expression has an invalid loop delay: {1} (must be greater than or equal to {2})
+BAD_INITIAL_POSITION,{0} 式に無効な初期位置を指定しました: {1} (ターゲットタイプに変換できません),{0} expression has an invalid initial position: {1} (cannot be converted to target type)
+BAD_FINAL_POSITION,{0} 式に無効な最終位置を指定しました: {1} (ターゲットタイプに変換できません),{0} expression has an invalid final position: {1} (cannot be converted to target type)
+BAD_INITIAL_VELOCITY,{0} 式に無効な初期速度を指定しました: {1} (ターゲットタイプに変換できません),{0} expression has an invalid initial velocity: {1} (cannot be converted to target type)
+BAD_OVERSHOOT,{0} 式に無効な範囲のオーバーシュートを指定しました: {1} ({2} 以上 {3} 以下である必要があります),{0} expression has an invalid overshoot: {1} (must be between {2} and {3})
+BAD_EASE,{0} 式に無効なイージングを指定しました: {1},{0} expression has an invalid easing: {1}
+BAD_X1,{0} 式に無効な範囲の第一制御点 X 成分を指定しました: {1} ({2} 以上 {3} 以下である必要があります),{0} expression has an invalid first control point X component: {1} (must be between {2} and {3})
+BAD_Y1,{0} 式に無効な範囲の第一制御点 Y 成分を指定しました: {1} ({2} 以上 {3} 以下である必要があります),{0} expression has an invalid first control point Y component: {1} (must be between {2} and {3})
+BAD_X2,{0} 式に無効な範囲の第二制御点 X 成分を指定しました: {1} ({2} 以上 {3} 以下である必要があります),{0} expression has an invalid second control point X component: {1} (must be between {2} and {3})
+BAD_Y2,{0} 式に無効な範囲の第二制御点 Y 成分を指定しました: {1} ({2} 以上 {3} 以下である必要があります),{0} expression has an invalid second control point Y component: {1} (must be between {2} and {3})
+BAD_POWER,{0} 式に無効な範囲の減衰指数を指定しました: {1} ({2} 以上である必要があります),{0} expression has an invalid decay exponent: {1} (must be greater than or equal to {2})
+BAD_TIME_CONSTANT,{0} 式に無効な範囲の時定数を指定しました: {1} ({2} 以上である必要があります),{0} expression has an invalid time constant: {1} (must be greater than or equal to {2})
+BAD_REST_DELTA,{0} 式に無効な範囲の休止デルタを指定しました: {1} ({2} 以上である必要があります),{0} expression has an invalid rest delta: {1} (must be greater than or equal to {2})
+BAD_PREFER,{0} 式に無効な優先先を指定しました: {1},{0} expression has an invalid preference specified: {1}
+BAD_EASING_FUNCTION,{0} 式に無効なイージング式を指定しました: {1},{0} expression has an invalid easing function: {1}
+BAD_AMPLITUDE,{0} 式に無効な範囲の振幅を指定しました: {1} ({2} 以上 {3} 以下である必要があります),{0} expression has an invalid amplitude: {1} (must be between {2} and {3})
+BAD_PERIOD,{0} 式に無効な範囲の周期を指定しました: {1} ({2} 以上 {3} 以下である必要があります),{0} expression has an invalid period: {1} (must be between {2} and {3})
+BAD_EXPONENT,{0} 式に無効な範囲の加減速指数を指定しました: {1} ({2} 以上 {3} 以下である必要があります),{0} expression has an invalid ease exponent: {1} (must be between {2} and {3})
+BAD_SEGMENTS,{0} 式に無効な範囲の分割数を指定しました: {1} ({2} 以上である必要があります),{0} expression has an invalid segment count: {1} (must be greater than or equal to {2})
+BAD_INTENSITY,{0} 式に無効な範囲の振れ幅を指定しました: {1} ({2} 以上 {3} 以下である必要があります),{0} expression has an invalid intensity: {1} (must be between {2} and {3})
+BAD_STIFFNESS,{0} 式に無効なバネ定数を指定しました: {1} ({2} 以上である必要があります),{0} expression has an invalid stiffness: {1} (must be greater than or equal to {2})
+BAD_DAMPING,{0} 式に無効な減衰係数を指定しました: {1} ({2} 以上である必要があります),{0} expression has an invalid damping: {1} (must be greater than or equal to {2})
+BAD_MASS,{0} 式に無効な質量を指定しました: {1} ({2} 以上である必要があります),{0} expression has an invalid mass: {1} (must be greater than or equal to {2})
+BAD_REST_ENERGY,{0} 式に無効な休止エネルギーを指定しました: {1} ({2} 以上である必要があります),{0} expression has an invalid rest energy: {1} (must be greater than or equal to {2})
+BAD_ROUND,{0} 式に無効な丸め関数を指定しました: {1},{0} expression has an invalid rounding function: {1}
+BAD_TRANS,{0} 式に無効なカーブを指定しました: {1},{0} expression has an invalid transition curve: {1}
+BAD_PRESET_NAME,{0} 式に無効なプリセット名を指定しました: {1},{0} expression has an invalid preset name: {1}
