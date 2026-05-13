@@ -53,6 +53,12 @@ static func decay_target(
 	return null
 
 ## Schedules a decay transition targeting an object's property.
+## [codeblock]
+## Motion.tween($Sprite2D, ^"position:x").duration(1.0).to(100.0)
+## await Task.delay(0.2)
+## # It maintains the velocity and comes to a slow stop.
+## Motion.decay($Sprite2D, ^"position:x").power(0.1).time_constant(0.1)
+## [/codeblock]
 static func decay(
 	target_object: Object,
 	target_property_path: NodePath,
@@ -171,6 +177,12 @@ static func spring_target(
 	return null
 
 ## Schedules a spring transition targeting an object's property.
+## [codeblock]
+## for i in 10:
+##     # It maintains the previous speed and continues the spring motion.
+##     Motion.spring($Sprite2D, ^"position").to(Vector2(randf(), randf()) * 100.0)
+##     await Task.delay(0.25)
+## [/codeblock]
 static func spring(
 	target_object: Object,
 	target_property_path: NodePath,
