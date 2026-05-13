@@ -40,7 +40,12 @@ func process_physics() -> MotionExpression:
 	return process(PROCESS_PHYSICS)
 
 ## Waits for the transition to finish.[br]
-## [b]Note:[/b] Returns the number of ticks exceeded beyond the
+## [b]Note:[/b] Returns the number of seconds exceeded beyond the
 ## transition completion time.
+## [codeblock]
+## var excess := await Motion.tween($Button, ^"modulate:a").to(0.0).wait()
+## # Carry over the excess time accumulated between process frames.
+## await Motion.tween($Button, ^"modulate:a", TYPE_FLOAT, excess).to(1.0).wait()
+## [/codeblock]
 @abstract
 func wait(cancel: Cancel = null) -> Variant
