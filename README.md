@@ -79,8 +79,8 @@ Place a `MotionPresetBank` node in the scene tree as shown below:
 
 ![Place a `MotionPresetBank`](./assets/texture/01.png)
 
-Open the Inspector, add a `MotionPreset`, and configure it. (The `name` property is required!)
-You can have multiple presets with the same `name` for each preset type.
+Open the Inspector, add a `MotionPreset`, and configure it. (The `preset_name` property is required!)
+You can have multiple presets with the same `preset_name` for each preset type.
 In that case, you can adjust the selection probability using `probability`.
 
 ![Add and configure `MotionPreset`](./assets/texture/02.png)
